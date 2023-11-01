@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <fileContent xmlns="">$body</fileContent>
+                </format>
+                <args/>
+            </payloadFactory>
+            <log level="custom">
+                <property expression="$ctx:fileContent" name="File Content"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,3 @@
+1688300385448	Delete resource 'NotificationsDataServiceConfigs/dataservice/ReqNotificationLogsDS.dbs'
+1688301624969	Delete resource 'NotificationsConfigs/src/main/synapse-config/sequences/RequestNotificationLogSeq.xml'
+1688301636093	Delete resource 'NotificationsConfigs/src/main/synapse-config/sequences/ResponseNotificationLogSeq.xml'

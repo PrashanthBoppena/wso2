@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <script language="js"><![CDATA[var attachments = mc.getAttachmentMap();
+    var attachmentNames = attachments.keySet();
+    
+    var iterator = attachmentNames.iterator();
+    while (iterator.hasNext()) {
+        var attachmentName = iterator.next();
+        var attachment = attachments.get(attachmentName);
+        
+        var dataSource = attachment.getDataHandler().getDataSource();
+        var fileName = attachment.getContentDisposition();
+        
+        var fileData = new java.util.Scanner(dataSource.getInputStream(), "UTF-8").useDelimiter("\\A").next();
+        
+        mc.setProperty("FILE_NAME", fileName);
+        mc.setProperty("FILE_DATA", fileData);
+        
+        log.info("Received file: " + fileName);
+    }]]></script>
+            <log level="custom">
+                <property expression="get-property('FILE_NAME')" name="File Name"/>
+                <property expression="get-property('FILE_DATA')" name="File Data"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

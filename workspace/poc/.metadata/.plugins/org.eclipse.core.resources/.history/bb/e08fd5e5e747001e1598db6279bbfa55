@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence/>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

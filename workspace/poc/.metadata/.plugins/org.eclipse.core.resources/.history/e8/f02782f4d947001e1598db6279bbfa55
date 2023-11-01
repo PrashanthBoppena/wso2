@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <!-- Extract filename from the URL and store it as a property -->
+            <property expression="fn:substring-after(get-property('To'), '/')" name="filename" scope="default" type="STRING"/>
+            <!-- Log the filename -->
+            <log level="custom">
+                <property expression="get-property('filename')" name="Filename"/>
+            </log>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <property expression="fn:concat(get-property('filename'))" name="transport.vfs.FileNamePattern" scope="transport" type="STRING"/>
+            <property name="transport.vfs.ContentType" scope="axis2" type="STRING" value="multipart/form-data"/>
+            <property name="transport.vfs.ActionAfterProcess" scope="transport" type="STRING" value="MOVE"/>
+            <property name="transport.vfs.MoveAfterFailure" scope="transport" type="STRING" value="file:E:\EI\created-csv\original"/>
+            <property name="transport.vfs.MoveAfterProcess" scope="transport" type="STRING" value="sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test?sftpPathFromRoot=true"/>
+            <send/>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

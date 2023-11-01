@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1684752724474_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1684752724600_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1691387859874_3" label="NotificationEngine" name="NotificationEngine">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationEngine" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationEngineCompositeExporter" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationEngineConfigs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationEngineDataServiceConfigs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationEngineRegistryResources" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Notifications" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationsCompositeExporter" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationsConfigs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/NotificationsDataServiceConfigs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SchemaValidation" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SchemaValidationCompositeExporter" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SchemaValidationConfigs" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SchemaValidationRegistryResources" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1692007044194_5" label="GenericAPITemplate" name="GenericAPITemplate">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/API_Template" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/API_TemplateCompositeExporter" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/API_TemplateConfigs" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1684752729808_2" label="Window Working Set" name="Aggregate for window 1684752729807"/>
+<mruList name="GenericAPITemplate"/>
+<mruList name="NotificationEngine"/>
+</workingSetManager>

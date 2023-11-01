@@ -1,0 +1,6 @@
+1698736394378	Delete resource 'DynamicQuerysCallConfigs/src/main/synapse-config/sequences/SystemReqLogsSeq.xml'
+1698736398722	Delete resource 'DynamicQuerysCallConfigs/src/main/synapse-config/sequences/SystemResLogsSeq.xml'
+1698736458142	Delete resource 'DynamicEBSequenceConfigs/src/main/synapse-config/sequences/SystemReqLogsSeq.xml'
+1698736460477	Delete resource 'DynamicEBSequenceConfigs/src/main/synapse-config/sequences/SystemResLogsSeq.xml'
+1698736530564	Delete resource 'Seven_API_CallingConfigs/src/main/synapse-config/sequences/SystemReqLogsSeq.xml'
+1698736533326	Delete resource 'Seven_API_CallingConfigs/src/main/synapse-config/sequences/SystemResLogsSeq.xml'

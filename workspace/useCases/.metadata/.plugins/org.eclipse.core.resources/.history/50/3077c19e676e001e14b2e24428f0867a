@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/Clone_Aggregate" name="Clone_Aggregate_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <call>
+                <endpoint key="DynamicQueryCall_EP"/>
+            </call>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.response[0]"/>
+                </args>
+            </payloadFactory>
+            <log level="custom">
+                <property expression="//scenario" name="scenario"/>
+            </log>
+            <script language="js"><![CDATA[// Get the JSON object from the message context
+        var jsonPayload = mc.getPayloadJSON();
+
+        var count = 0;
+
+        for (var key in jsonPayload) {
+            if (jsonPayload[key] === "Y") {
+                count++;
+            }
+        }
+
+        // Set the count in a property for future use
+        mc.setProperty("CountWithY", count);]]></script>
+            <log level="custom">
+                <property expression="$ctx:CountWithY" name="CountWithY"/>
+            </log>
+            <sequence key="Advance_API_Seq"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <sequence key="faultSequence"/>
+        </faultSequence>
+    </resource>
+</api>

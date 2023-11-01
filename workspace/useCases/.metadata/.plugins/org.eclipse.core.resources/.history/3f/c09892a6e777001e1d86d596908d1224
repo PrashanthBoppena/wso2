@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/DynamicQueryCall" name="DynamicQueryCall_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <sequence key="SystemReqLogsSeq"/>
+            <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+            </log>
+            <property expression="get-property('system', 'carbon.home')" name="CarbonHome" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('CarbonHome')" name="Carbon Home"/>
+            </log>
+            <class description="SystemLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                <property name="process" value="DynamicQueryCall"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="$ctx:requestPayload" name="requestPayload"/>
+                <property expression="$ctx:apiName" name="apiName"/>
+                <property expression="$ctx:reqId" name="reqId"/>
+                <property expression="$ctx:processId" name="processId"/>
+            </class>
+            <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+            <class description="SystemLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:reqId" name="reqId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="$ctx:responsePayload" name="responsePayload"/>
+                <property expression="$ctx:process" name="process"/>
+                <property expression="$axis2:HTTP_SC_DESC" name="status"/>
+            </class>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:responsePayload"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <sequence key="FaultSequence"/>
+        </faultSequence>
+    </resource>
+</api>

@@ -1,0 +1,35 @@
+package com.knot.uol.utils;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class DynamicPropertyLoader {
+    private Properties properties;
+
+    public DynamicPropertyLoader() {
+        properties = new Properties();
+        loadProperties();
+    }
+
+    private void loadProperties() {
+        try {
+            // Load property files from a standard directory (e.g., /path/to/properties/)
+            String propertyFilePath = "/CustomDevConfigs/api-registry-configs.properties";
+            properties.load(new FileInputStream(propertyFilePath));
+            
+            String var =properties.getProperty("apiregistry.db.password");
+            
+            System.out.println( properties.getProperty("apiregistry.db.password"));
+
+            // Load more property files if needed
+            // properties.load(new FileInputStream("/path/to/properties/property2.properties"));
+            // properties.load(new FileInputStream("/path/to/properties/property3.properties"));
+        } catch (IOException e) {
+            // Handle exceptions
+        }
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
+}

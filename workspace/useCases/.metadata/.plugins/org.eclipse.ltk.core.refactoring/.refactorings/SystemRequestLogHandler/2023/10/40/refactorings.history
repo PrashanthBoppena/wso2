@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.knot.uol&apos; to &apos;com.knot.uol.newLog&apos;&#x0D;&#x0A;- Original project: &apos;SystemRequestLogHandler&apos;&#x0D;&#x0A;- Original element: &apos;SystemRequestLogHandler/src/main/java/com.knot.uol&apos;&#x0D;&#x0A;- Renamed element: &apos;SystemRequestLogHandler/src/main/java/com.knot.uol.newLog&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.knot.uol&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.knot.uol" name="com.knot.uol.newLog" qualified="false" references="true" stamp="1696507973464" textual="false" version="1.0"/>
+</session>

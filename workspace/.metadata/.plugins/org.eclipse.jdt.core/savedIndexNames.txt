@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+E:\WSO2Softwares\IntegrationStudio\8.1.0\workspace\.metadata\.plugins\org.eclipse.jdt.core
+2889878686.index
+1865797976.index
+613202607.index
+693620906.index
+411095610.index
+2742092391.index
+2996110660.index

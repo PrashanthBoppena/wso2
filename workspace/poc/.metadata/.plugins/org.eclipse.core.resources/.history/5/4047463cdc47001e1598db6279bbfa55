@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="messageType" scope="axis2" type="STRING" value="multipart/form-data"/>
+            <!--  <log level="full"/> -->
+            <log level="custom">
+                <property name="========UploadAttachment" value=" API Called=========="/>
+                <property expression="get-property('transport', 'filename')" name="========AttachmentName==="/>
+            </log>
+            <!-- <log level="full"/> -->
+            <payloadFactory media-type="xml">
+                <format>
+                    <ns:binary xmlns:ns="http://ws.apache.org/commons/ns/payload">$1</ns:binary>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//*[local-name()='binary']/text()"/>
+                </args>
+            </payloadFactory>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="E:\Java\jdk1.8.0_351" version="1.8.0_351">
+        <bootpath>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\resources.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\rt.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\jsse.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\jce.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\charsets.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\jfr.jar"/>
+            <entry path="E:\Java\jdk1.8.0_351\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\ext"/>
+            <entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="E:\Java\jdk1.8.0_351\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="C:\Program Files\WSO2\Enterprise Integrator\6.6.0\jdk\jdk-11.0.5" version="11.0.5"/>
+    <libraryInfo home="C:\Program Files\Java\jdk-11" version="11.0.18"/>
+    <libraryInfo home="E:\WSO2Softwares\IntegrationStudio\jdk-home" version="11.0.8"/>
+</libraryInfos>

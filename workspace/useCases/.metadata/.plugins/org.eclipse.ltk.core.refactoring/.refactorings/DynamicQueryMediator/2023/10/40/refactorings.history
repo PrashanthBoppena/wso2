@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;DynamicQueryMediator&apos;&#x0D;&#x0A;- Original project: &apos;DynamicQueryMediator&apos;&#x0D;&#x0A;- Original element: &apos;DynamicQueryMediator/src/main/java/com.knot.uol&apos;&#x0D;&#x0A;- Delete subpackages" description="Delete element" element1="/src\/main\/java&lt;com.knot.uol.utils" element2="/src\/main\/java&lt;com.knot.uol.mediators" element3="/src\/main\/java&lt;com.knot.uol.mapper" element4="/src\/main\/java&lt;com.knot.uol.dto" element5="/src\/main\/java&lt;com.knot.uol" element6="/src\/main\/java&lt;com.knot" element7="/src\/main\/java&lt;com" elements="7" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1696163449762" subPackages="true" version="1.0"/>
+</session>

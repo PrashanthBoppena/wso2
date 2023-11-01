@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <!-- Extract filename from the URL and store it as a property -->
+            <property expression="fn:substring-after(get-property('To'), '/')" name="filename" scope="default" type="STRING"/>
+            <!-- Log the filename -->
+            <log level="custom">
+                <property expression="get-property('filename')" name="Filename"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

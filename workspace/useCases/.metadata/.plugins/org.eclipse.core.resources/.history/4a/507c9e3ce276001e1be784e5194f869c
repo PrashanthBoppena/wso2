@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SystemResLogsSeq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="responsePayload" expression="json-eval($)" name="responsePayload" scope="default" type="STRING"/>
+    <class description="ResponseLog" name="com.knot.uol.updateLog.UpdateSystemRequest"/>
+</sequence>

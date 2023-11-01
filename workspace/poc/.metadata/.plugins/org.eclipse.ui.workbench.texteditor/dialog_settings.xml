@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="connectToDatabase"/>
+			<item value="getQueryConfigFromDatabase"/>
+			<item value="boolean"/>
+			<item value="wso2Jyothi"/>
+			<item value="replyFile "/>
+			<item value="Before calling sysResLog seq"/>
+			<item value="req_id"/>
+			<item value="s_msisdn"/>
+			<item value="sequence"/>
+			<item value="NotificationsDS"/>
+			<item value="NotificationsExchange/Dynamic"/>
+			<item value="ReqExchange"/>
+			<item value="ReqQueue"/>
+			<item value="store"/>
+			<item value="source"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="WSO2Test"/>
+			<item value="NotificationEngineDS"/>
+			<item value="NotificationsExchange"/>
+			<item value="NotificationsQueue"/>
+			<item value="$ctx:req_id"/>
+			<item value="r_msisdn"/>
+			<item value="NotificationsDS"/>
+			<item value="smseLogHandler"/>
+			<item value="ApiLogHandler"/>
+			<item value="smseLogsQuery"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="110"/>
+		<item key="DIALOG_Y_ORIGIN" value="44"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

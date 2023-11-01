@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <script language="js"><![CDATA[var file = mc.getAttachment("file");
+    if (file != null) {
+        var fileName = file.getHeader("Content-Disposition").getValue().match(/filename="([^"]+)"/)[1];
+        var inputStream = file.getInputStream();
+        
+        var fileData = new java.util.Scanner(inputStream, "UTF-8").useDelimiter("\\A").next();
+        
+        mc.setProperty("FILE_NAME", fileName);
+        mc.setProperty("FILE_DATA", fileData);
+        
+        log.info("Received file: " + fileName);
+    } else {
+        log.error("No file attachment found in the request.");
+    }]]></script>
+            <log level="custom">
+                <property expression="get-property('FILE_NAME')" name="File Name"/>
+                <property expression="get-property('FILE_DATA')" name="File Data"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

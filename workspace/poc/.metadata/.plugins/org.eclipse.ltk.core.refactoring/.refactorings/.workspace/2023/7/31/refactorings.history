@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;API_TemplateConfigs/src/main/synapse-config/sequences/sysReqLogHandlerSeq.xml&apos;" deleteContents="false" description="Delete resource &apos;API_TemplateConfigs/src/main/synapse-config/sequences/sysReqLogHandlerSeq.xml&apos;" element1="/API_TemplateConfigs/src/main/synapse-config/sequences/sysReqLogHandlerSeq.xml" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1690722087481"/>
+</session>

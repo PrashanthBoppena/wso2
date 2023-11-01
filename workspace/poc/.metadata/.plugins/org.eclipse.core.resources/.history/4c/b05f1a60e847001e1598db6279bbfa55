@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <!-- Handle incoming file -->
+            <log level="full"/>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <!-- Modify the below URL to your server's endpoint -->
+            <send>
+                <endpoint>
+                    <address uri="sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test?sftpPathFromRoot=true">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/Registry" name="RegPropertiesCheck" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('registry','gov:/custom/keyValue.properties')" name="keyValueData"/>
+                <property expression="get-property('registry','gov:/custom/JsonProperties.json')" name="JsonData"/>
+                <property expression="get-property('registry','gov:/custom/xmlProperties.xml')" name="xmlProp"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <Data xmlns="">$1</Data>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('registry','gov:/custom/xmlProperties.xml')"/>
+                </args>
+            </payloadFactory>
+            <log>
+                <property expression="//user" name="user"/>
+            </log>
+            <dblookup>
+                <connection>
+                    <pool>
+                        <driver/>
+                        <url/>
+                        <user/>
+                        <password/>
+                    </pool>
+                </connection>
+            </dblookup>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

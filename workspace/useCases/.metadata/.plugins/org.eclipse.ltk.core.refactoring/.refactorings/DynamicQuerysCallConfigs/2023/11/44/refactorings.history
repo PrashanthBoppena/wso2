@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DynamicQuerysCallConfigs/src/main/synapse-config/sequences/SystemReqLogsSeq.xml&apos; to &apos;CommonAPISeqPropertiesCollectionSeq.xml&apos;" description="Rename resource &apos;SystemReqLogsSeq.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/synapse-config/sequences/SystemReqLogsSeq.xml" name="CommonAPISeqPropertiesCollectionSeq.xml" stamp="1698814846795" updateReferences="true"/>
+</session>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="$trp:Content-Type" name="Content-Type" scope="default" type="STRING"/>
+            <filter regex="POST" source="$axis2:HTTP_METHOD">
+                <then>
+                    <property name="fileReceived" scope="default" type="STRING" value="true"/>
+                    <payloadFactory media-type="xml">
+                        <format>
+                            <fileContent xmlns="">$1</fileContent>
+                        </format>
+                        <args>
+                            <arg evaluator="xml" expression="$body"/>
+                        </args>
+                    </payloadFactory>
+                    <property expression="$trp:Content-Disposition" name="FILE_NAME" scope="default" type="STRING"/>
+                    <log level="custom">
+                        <property expression="get-property('FILE_NAME')" name="File Name"/>
+                        <property expression="get-property('fileContent')" name="File Data"/>
+                    </log>
+                </then>
+                <else>
+                    <respond/>
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

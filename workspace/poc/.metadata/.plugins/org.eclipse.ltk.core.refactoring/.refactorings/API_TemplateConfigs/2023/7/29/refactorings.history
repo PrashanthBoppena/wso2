@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;API_TemplateConfigs/src/main/synapse-config/api/SampleAPI.xml&apos; to &apos;SampleAPI_1.xml&apos;" description="Rename resource &apos;SampleAPI.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/synapse-config/api/SampleAPI.xml" name="SampleAPI_1.xml" stamp="1689660046840" updateReferences="true"/>
+</session>
