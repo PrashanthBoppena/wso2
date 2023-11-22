@@ -1,0 +1,43 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "inputType" : "XML",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "test",
+  "type" : "object",
+  "properties" : {
+    "information" : {
+      "id" : "http://wso2jsonschema.org/information",
+      "type" : "object",
+      "properties" : {
+        "people" : {
+          "id" : "http://wso2jsonschema.org/information/people",
+          "type" : "object",
+          "properties" : {
+            "person" : {
+              "id" : "http://wso2jsonschema.org/information/people/person",
+              "type" : "array",
+              "items" : [ {
+                "id" : "http://wso2jsonschema.org/information/people/person/0",
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "id" : "http://wso2jsonschema.org/information/people/person/0/name",
+                    "type" : "string"
+                  },
+                  "age" : {
+                    "id" : "http://wso2jsonschema.org/information/people/person/0/age",
+                    "type" : "number"
+                  },
+                  "company" : {
+                    "id" : "http://wso2jsonschema.org/information/people/person/0/company",
+                    "type" : "string"
+                  }
+                }
+              } ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="accessTokenEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="post" uri-template="https://www.googleapis.com/oauth2/v4/token?client_id=650665487856-ncqnk846eemgo5cljfqvl7g953bfe0vt.apps.googleusercontent.com&amp;client_secret=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&amp;refresh_token=1//04Pwu5JPo8uYlCgYIARAAGAQSNwF-L9IrdGlTYzmB3iGRibgaE9sVjfxQbuVxP3KYzw1s44pq9BuGliL_3funF1OqVVxEJE3HydI&amp;grant_type=refresh_token">
+        <timeout>
+            <duration>60000</duration>
+        </timeout>
+        <suspendOnFailure>
+            <errorCodes>101500,101501,101506,101507,101508</errorCodes>
+            <initialDuration>1000</initialDuration>
+            <progressionFactor>2</progressionFactor>
+            <maximumDuration>60000</maximumDuration>
+        </suspendOnFailure>
+        <markForSuspension>
+            <errorCodes>101504,101505</errorCodes>
+            <retriesBeforeSuspension>3</retriesBeforeSuspension>
+            <retryDelay>1</retryDelay>
+        </markForSuspension>
+    </http>
+</endpoint>

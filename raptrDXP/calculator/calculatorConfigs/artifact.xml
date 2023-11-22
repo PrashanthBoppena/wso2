@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="calculator" groupId="com.math.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/calculator.xml</file>
+    </artifact>
+    <artifact name="ServerRakesh" groupId="com.math.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ServerRakesh.xml</file>
+    </artifact>
+    <artifact name="CalculatorMS" groupId="com.math.message-store" version="1.0.0" type="synapse/message-store" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-stores/CalculatorMS.xml</file>
+    </artifact>
+    <artifact name="CalculatorMP" groupId="com.math.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/CalculatorMP.xml</file>
+    </artifact>
+    <artifact name="divideRequestProcessingSeq" groupId="com.math.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/divideRequestProcessingSeq.xml</file>
+    </artifact>
+</artifacts>

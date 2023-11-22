@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="ReadFile" xmlns="http://ws.apache.org/ns/synapse">
+    <file.init>
+        <workingDir>E:\EI</workingDir>
+        <name>ReadFile</name>
+        <fileLockScheme>Local</fileLockScheme>
+        <connectionType>LOCAL</connectionType>
+    </file.init>
+</localEntry>

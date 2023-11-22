@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="CreatePdfFile_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/CreatePdfFile_API.xml</file>
+    </artifact>
+    <artifact name="JavaWso2_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/JavaWso2_API.xml</file>
+    </artifact>
+</artifacts>

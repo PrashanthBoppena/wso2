@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/customeraddress" name="CustomerAddressInfoAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <clone>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint>
+                                <http method="post" uri-template="http://172.16.110.118:8280/customer_info">
+                                    <suspendOnFailure>
+                                        <initialDuration>-1</initialDuration>
+                                        <progressionFactor>-1</progressionFactor>
+                                        <maximumDuration>0</maximumDuration>
+                                    </suspendOnFailure>
+                                    <markForSuspension>
+                                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                    </markForSuspension>
+                                </http>
+                            </endpoint>
+                        </call>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint>
+                                <http method="post" statistics="enable" uri-template="http://172.16.110.118:8280/address">
+                                    <suspendOnFailure>
+                                        <initialDuration>-1</initialDuration>
+                                        <progressionFactor>-1</progressionFactor>
+                                        <maximumDuration>0</maximumDuration>
+                                    </suspendOnFailure>
+                                    <markForSuspension>
+                                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                    </markForSuspension>
+                                </http>
+                            </endpoint>
+                        </call>
+                    </sequence>
+                </target>
+            </clone>
+            <aggregate>
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="Linux">
+    <file.init>
+        <ftpConnectionTimeout>5000</ftpConnectionTimeout>
+        <ftpSocketTimeout>5000</ftpSocketTimeout>
+        <workingDir>/home/WSO2/Prashanth</workingDir>
+        <connectionType>FTP</connectionType>
+        <password>Kn0t12#$</password>
+        <userDirIsRoot>false</userDirIsRoot>
+        <port>20</port>
+        <host>172.16.110.240</host>
+        <name>Linux</name>
+        <fileLockScheme>Cluster</fileLockScheme>
+        <username>WSO2</username>
+    </file.init>
+</localEntry>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="AMQPAdditionConsumer" startOnLoad="true" transports="rabbitmq" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="json-eval($.yourName)" name="Name" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('Name')" name="Req"/>
+            </log>
+            <sequence key="ServiceOperationSeq"/>
+            <property expression="json-eval($.Msg)" name="Greeting" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="fn:concat(get-property('Greeting'),',',get-property('Name'))" name="Res"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"Res":$1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="fn:concat(get-property('Greeting'),',',get-property('Name'))"/>
+                </args>
+            </payloadFactory>
+            <send>
+                <endpoint>
+                    <address uri="rabbitmq:/AMQPAdditionConsumer?rabbitmq.server.host.name=localhost&amp;rabbitmq.server.port=5672&amp;rabbitmq.queue.name=ResQueue&amp;rabbitmq.queue.route.key=ResKey&amp;rabbitmq.exchange.name=ResExchange">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="rabbitmq.queue.routing.key">ReqKey</parameter>
+    <parameter name="rabbitmq.exchange.name">ReqExchange</parameter>
+    <parameter name="rabbitmq.queue.name">ReqQueue</parameter>
+    <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+</proxy>

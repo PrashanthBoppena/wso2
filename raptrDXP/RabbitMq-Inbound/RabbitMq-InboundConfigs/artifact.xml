@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="rabbit-mq-inboung-endpoint" groupId="com.knot.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/rabbit-mq-inboung-endpoint.xml</file>
+    </artifact>
+    <artifact name="RabbitMqInboundLogSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/RabbitMqInboundLogSeq.xml</file>
+    </artifact>
+    <artifact name="rabbitmq-inbount-fault" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/rabbitmq-inbount-fault.xml</file>
+    </artifact>
+</artifacts>

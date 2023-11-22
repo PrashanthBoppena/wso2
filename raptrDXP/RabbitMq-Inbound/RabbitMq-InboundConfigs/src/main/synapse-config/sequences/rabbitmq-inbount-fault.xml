@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="rabbitmq-inbount-fault" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full">
+        <property name="MESSAGE" value="Executing default 'fault' sequence"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE" xmlns:ns="http://org.apache.synapse/xsd"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE" xmlns:ns="http://org.apache.synapse/xsd"/>
+    </log>
+    <property name="SET_ROLLBACK_ONLY" scope="default" type="STRING" value="true"/>
+    <drop/>
+</sequence>

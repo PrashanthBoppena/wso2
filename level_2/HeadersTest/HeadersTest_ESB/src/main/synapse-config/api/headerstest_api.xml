@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/test" name="headerstest_api" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/{id}">
+        <inSequence>
+            <property description="property" expression="get-property('uri.var.id')" name="uri.var.id" scope="default" type="STRING"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://desktop-6i9v5bp:8280/services/Emp_Dataservice/Employee/{uri.var.id}">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <property description="res" expression="json-eval($)" name="res1" scope="default" type="STRING"/>
+            <property description="code2" expression="$axis2:HTTP_SC_DESC" name="res2" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{"res1":$1,&#xd;
+"res2":$2&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('res1')"/>
+                    <arg evaluator="xml" expression="get-property('res2')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

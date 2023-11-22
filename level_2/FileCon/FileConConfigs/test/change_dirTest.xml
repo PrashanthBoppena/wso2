@@ -1,0 +1,28 @@
+<unit-test>
+    <artifacts>
+        <test-artifact>
+            <artifact>/FileConConfigs/src/main/synapse-config/api/filecon_api.xml</artifact>
+        </test-artifact>
+        <supportive-artifacts/>
+        <registry-resources/>
+        <connector-resources>
+            <connector-resource>/FileConConnectorExporter/file-connector-4.0.13.zip</connector-resource>
+        </connector-resources>
+    </artifacts>
+    <test-cases>
+        <test-case name="isFilesExist">
+            <input>
+                <request-path>/change-dir</request-path>
+                <request-method>GET</request-method>
+            </input>
+            <assertions>
+                <assertEquals>
+                    <actual>$trp:filesCount</actual>
+                    <expected><![CDATA[0.1]]></expected>
+                    <message>"No files are there"</message>
+                </assertEquals>
+            </assertions>
+        </test-case>
+    </test-cases>
+    <mock-services/>
+</unit-test>

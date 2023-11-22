@@ -1,0 +1,21 @@
+<data serviceStatus="active" name="statusdbcall_api" serviceNamespace="" serviceGroup="" transports="http https">
+  <description />
+  <config id="InsertStatus">
+    <property name="driverClassName">com.mysql.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/training</property>
+    <property name="username">root</property>
+    <property name="password">Pashi@13</property>
+  </config>
+  <query id="insert" useConfig="InsertStatus">
+    <sql>insert into httpresponce (status_code, status_text,  request_time) values( :status_code, :text, now());</sql>
+    <param name="status_code" sqlType="STRING" paramType="SCALAR" />
+    <param type="IN" name="text" sqlType="STRING" paramType="SCALAR" optional="false" />
+  </query>
+  <resource path="/get" method="POST">
+    <description />
+    <call-query href="insert">
+      <with-param name="status_code" query-param="status_code" />
+      <with-param name="text" query-param="text" />
+    </call-query>
+  </resource>
+</data>

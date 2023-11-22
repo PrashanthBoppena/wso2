@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log description="Welcome Log"/>
+            <property description="text/html" name="messageType" scope="axis2" type="STRING" value="text/html"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <ns:text xmlns:ns="http://ws.apache.org/commons/ns/payload">
+Hi Team this is a sample Mail to demonstrate how to send emails through email.
+</ns:text>
+                </format>
+                <args/>
+            </payloadFactory>
+            <send>
+                <endpoint>
+                    <address uri="mailto:prasanth.boppena@knotsolutions.com">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

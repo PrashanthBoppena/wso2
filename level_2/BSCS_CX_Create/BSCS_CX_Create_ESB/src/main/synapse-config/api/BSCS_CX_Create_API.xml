@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/customer" name="BSCS_CX_Create_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/create-customer">
+        <inSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:mod="http://model.customer.knot.com" xmlns:ser="http://service.customer.knot.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <ser:insertCustomerDetails>
+                                <ser:cust>
+                                    <mod:dOB>$1</mod:dOB>
+                                    <mod:firstName>$2</mod:firstName>
+                                    <mod:gender>$3</mod:gender>
+                                    <mod:lastName>$4</mod:lastName>
+                                    <mod:marital_Status>$5</mod:marital_Status>
+                                    <mod:occupation>$6</mod:occupation>
+                                    <mod:title>$7</mod:title>
+                                </ser:cust>
+                            </ser:insertCustomerDetails>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="json" expression="$.Customer.DOB"/>
+                    <arg evaluator="json" expression="$.Customer.Firstname"/>
+                    <arg evaluator="json" expression="$.Customer.Gender"/>
+                    <arg evaluator="json" expression="$.Customer.Lastname"/>
+                    <arg evaluator="json" expression="$.Customer.MaritalStatus"/>
+                    <arg evaluator="json" expression="$.Customer.Occupation"/>
+                    <arg evaluator="json" expression="$.Customer.Title"/>
+                </args>
+            </payloadFactory>
+            <header name="Action" scope="default" value="urn:insertCustomerDetails"/>
+            <call>
+                <endpoint>
+                    <address format="soap11" uri="http://172.16.110.121:8080/CustomerDetails/services/CustomerService">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </call>
+            <property expression="application/json" name="messageType" scope="axis2" type="STRING"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/add-address">
+        <inSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:mod="http://model.customer.knot.com" xmlns:ser="http://service.customer.knot.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <ser:insert_Client_Address>
+                                <ser:add>
+                                    <mod:address_Id>?</mod:address_Id>
+                                    <mod:city>$1</mod:city>
+                                    <mod:line1>$2</mod:line1>
+                                    <mod:line2>$3</mod:line2>
+                                    <mod:state>$4</mod:state>
+                                    <mod:street>$5</mod:street>
+                                    <mod:zip_Code>$6</mod:zip_Code>
+                                </ser:add>
+                            </ser:insert_Client_Address>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="json" expression="$.Customer.City"/>
+                    <arg evaluator="json" expression="$.Customer.Line1"/>
+                    <arg evaluator="json" expression="$.Customer.Line2"/>
+                    <arg evaluator="json" expression="$.Customer.State"/>
+                    <arg evaluator="json" expression="$.Customer.Street"/>
+                    <arg evaluator="json" expression="$.Customer.Zipcode"/>
+                </args>
+            </payloadFactory>
+            <header name="Action" scope="default" value="urn:insert_Client_Address"/>
+            <call>
+                <endpoint key="RakeshService"/>
+            </call>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/getDetails/{cust_id}">
+        <inSequence>
+            <property expression="get-property('uri.var.cust_id')" name="id" scope="default" type="STRING"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:ser="http://service.customer.knot.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <ser:getCustomerById>
+                                <ser:id>$1</ser:id>
+                            </ser:getCustomerById>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('id')"/>
+                </args>
+            </payloadFactory>
+            <header name="Action" scope="default" value="urn:getCustomerById"/>
+            <call>
+                <endpoint key="RakeshService"/>
+            </call>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <property expression="json-eval($)" name="cust-response" scope="default" type="STRING"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:ser="http://service.customer.knot.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <ser:getAddressDetails>
+                                <ser:id>1</ser:id>
+                            </ser:getAddressDetails>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args/>
+            </payloadFactory>
+            <header name="Action" scope="default" value="urn:getAddressDetails"/>
+            <call>
+                <endpoint key="RakeshService"/>
+            </call>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <property expression="json-eval($)" name="address-response" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+$1,&#xd;
+$2&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('cust-response')"/>
+                    <arg evaluator="xml" expression="get-property('address-response')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

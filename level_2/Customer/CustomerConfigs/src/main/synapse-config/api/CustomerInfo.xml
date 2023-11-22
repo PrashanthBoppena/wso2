@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/customer_info" name="CustomerInfo" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <filter regex="1234" source="json-eval($.customer.id)">
+                <then>
+                    <payloadFactory media-type="json">
+                        <format>{&#xd;
+&#xd;
+"customer_info":{&#xd;
+"FirstName": "Prashanth",&#xd;
+"LastName":"B",&#xd;
+"Email":"prashanth@gmail.com"&#xd;
+}&#xd;
+&#xd;
+}</format>
+                        <args/>
+                    </payloadFactory>
+                </then>
+                <else>
+                    <payloadFactory media-type="text">
+                        <format>Else Block</format>
+                        <args/>
+                    </payloadFactory>
+                </else>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

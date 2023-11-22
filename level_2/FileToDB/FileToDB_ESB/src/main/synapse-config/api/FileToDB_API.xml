@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/file" name="FileToDB_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" url-mapping="/toDb">
+        <inSequence>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://DESKTOP-6I9V5BP:8280/services/LocalFile/file">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <property description="" name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$"/>
+                </args>
+            </payloadFactory>
+            <foreach expression="//Employees/Employee" id="itr1">
+                <sequence>
+                    <propertyGroup>
+                        <property expression="//Employee/Id" name="Id" scope="default" type="STRING"/>
+                        <property expression="//Employee/Fname" name="Fname" scope="default" type="STRING"/>
+                        <property expression="//Employee/Lname" name="Lname" scope="default" type="STRING"/>
+                        <property expression="//Employee/Mail" name="Mail" scope="default" type="STRING"/>
+                    </propertyGroup>
+                    <dbreport>
+                        <connection>
+                            <pool>
+                                <driver>com.mysql.jdbc.Driver</driver>
+                                <url>jdbc:mysql://localhost:3306/training</url>
+                                <user>root</user>
+                                <password>Pashi@13</password>
+                            </pool>
+                        </connection>
+                        <statement>
+                            <sql><![CDATA[insert into training.employee values(?,?,?,?)]]></sql>
+                            <parameter expression="get-property('Id')" type="VARCHAR"/>
+                            <parameter expression="get-property('Fname')" type="VARCHAR"/>
+                            <parameter expression="get-property('Lname')" type="VARCHAR"/>
+                            <parameter expression="get-property('Mail')" type="VARCHAR"/>
+                        </statement>
+                    </dbreport>
+                    <payloadFactory media-type="xml">
+                        <format>
+                            <Out xmlns="">
+                                <Name>$1</Name>
+                            </Out>
+                        </format>
+                        <args>
+                            <arg evaluator="xml" expression="fn:concat(//Fname,&quot; &quot;,//Lname)"/>
+                        </args>
+                    </payloadFactory>
+                </sequence>
+            </foreach>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

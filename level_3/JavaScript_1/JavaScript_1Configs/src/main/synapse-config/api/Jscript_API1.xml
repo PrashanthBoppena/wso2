@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/script1" name="Jscript_API1" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <property description="value" expression="//value" name="value" scope="default" type="STRING"/>
+            <!-- <log level="custom">
+                <property expression="$ctx:value" name="value"/>
+            </log>  -->
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+            
+            var curID =0;
+            var local=localStorage.getItem("ID");
+            var num=parseInt(local);
+            
+            function nextID(num){
+            localStorage.setItem("ID",num+1);
+            return localStorage.getItem("ID");
+            } 
+            
+            
+			log.info('next value '+ nextID(num));
+			
+			
+			
+            
+            var currentDate = new Date();
+            
+            var year = currentDate.getFullYear();
+            
+            year  = year.toString();
+            
+            log.info('dataType '+typeof year);
+            
+           
+             year = year.slice(-2);
+             
+  
+            
+           
+            var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+            
+            log.info('month type '+typeof month);
+            
+            
+            
+            
+            log.info('month '+month);
+            
+            log.info('yourID '+"KNOT"+year+month+"-"+currentID);
+            
+            mc.setProperty('result',"KNOT"+year+month+"-"+currentID) ;
+            
+            currentID = currentID+1;
+            
+            
+            
+            
+            
+            
+            
+            
+           /* var dob = mc.getProperty('value');
+       
+            var log = mc.getServiceLog();
+
+             dob = dob.toString();
+            
+            dob = dob.replace('-','/');
+           
+            dob = new Date(dob);
+                                       
+            function calculate_age(dob) { 
+            
+    		var diff_ms = Date.now() - dob.getTime();
+    
+    		var age_dt = new Date(diff_ms); 
+   
+  	 		return  Math.abs(age_dt.getUTCFullYear() - 1970);
+    		}
+             mc.setProperty('result',calculate_age(dob)) ; */
+            
+           
+            
+            
+            
+            
+            
+            
+           
+           /* log.info('diff '+  calculate_age(dob1));
+            log.info('now '+new Date());
+            var month_diff =Date.now() - dob.getTime(); 
+            log.info('month_diff '+month_diff);
+            
+             var age_dt = new Date(month_diff); 
+             log.info('age_dt '+age_dt);
+             
+             
+             var year = age_dt.getUTCFullYear(); 
+             log.info('year '+year);
+             
+               var age = Math.abs(year - 1970);
+            
+            log.info('age '+ age);
+             mc.setProperty('result', age);
+             
+             
+             
+             
+             
+                var cars=["prASHANTH","AJAY","jyothi"];
+            
+            log.info(cars.length) ;
+            for (var i = 0; i < cars.length; i++) {
+ 					 log.info(cars[i]);
+} */       
+            
+            
+            
+/*  if(age >= 21) {
+ log.info('You can vote in the election');
+ mc.setProperty("result", "You can vote in the election");
+} else {
+ log.info('You are too young to vote');
+ mc.setProperty('result', 'Not eligible to vote');
+} */]]></script>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"Msg":$1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('result')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

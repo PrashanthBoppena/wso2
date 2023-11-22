@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="login" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call>
+        <endpoint key="CustLoginEP"/>
+    </call>
+    <property description="uri.var.partnerID" expression="json-eval($.userMenuItemsRestDTO.userObject.partnerID)" name="uri.var.partnerID" scope="default" type="STRING"/>
+    <property description="uri.var.tenantID" expression="json-eval($.userMenuItemsRestDTO.userObject.tenantID)" name="uri.var.tenantID" scope="default" type="STRING"/>
+    <propertyGroup description="userObj">
+        <property expression="json-eval($.userMenuItemsRestDTO.userObject.authToken)" name="authToken" scope="default" type="STRING"/>
+        <property expression="json-eval($.userMenuItemsRestDTO.userObject.refreshToken)" name="refreshToken" scope="default" type="STRING"/>
+    </propertyGroup>
+</sequence>

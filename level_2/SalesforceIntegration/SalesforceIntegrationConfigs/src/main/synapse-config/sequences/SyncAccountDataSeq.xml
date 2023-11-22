@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SyncAccountDataSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <iterate expression="//Accounts/Account" id="AccountIteration">
+        <target>
+            <sequence>
+                <payloadFactory media-type="json">
+                    <format>{&#xd;
+"Name": "$1",&#xd;
+"AccountNumber": "$2",&#xd;
+"Type": "$3",&#xd;
+"BillingState": "$4",&#xd;
+"ShippingState": "$5",&#xd;
+"Ownership": "$6",&#xd;
+"Industry": "$7",&#xd;
+"NumberOfEmployees": "$8",&#xd;
+"Phone": "$9"&#xd;
+}&#xd;</format>
+                    <args>
+                        <arg evaluator="xml" expression="//Details/Name "/>
+                        <arg evaluator="xml" expression="//Details/AccountNumber"/>
+                        <arg evaluator="xml" expression="//Details/Type"/>
+                        <arg evaluator="xml" expression="//Details/BillingState"/>
+                        <arg evaluator="xml" expression="//Details/ShippingState"/>
+                        <arg evaluator="xml" expression="//Details/Ownership"/>
+                        <arg evaluator="xml" expression="//Details/Industry"/>
+                        <arg evaluator="xml" expression="//Details/NumberOfEmployees"/>
+                        <arg evaluator="xml" expression="//Details/Phone"/>
+                    </args>
+                </payloadFactory>
+                <salesforcerest.create configKey="AddAccount">
+                    <sObjectName>Account</sObjectName>
+                    <fieldAndValue>{json-eval($)}</fieldAndValue>
+                </salesforcerest.create>
+            </sequence>
+        </target>
+    </iterate>
+</sequence>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<localEntry xmlns="http://ws.apache.org/ns/synapse" key="Linux2">
+    <file.init>
+        <connectionType>SFTP</connectionType>
+        <password>Kn0t12#$</password>
+        <host>172.16.110.240</host>
+        <fileLockScheme>Cluster</fileLockScheme>
+        <workingDir>home/WSO2/Prashanth</workingDir>
+        <port>22</port>
+        <name>Linux2</name>
+        <username>WSO2</username>
+    </file.init>
+</localEntry>

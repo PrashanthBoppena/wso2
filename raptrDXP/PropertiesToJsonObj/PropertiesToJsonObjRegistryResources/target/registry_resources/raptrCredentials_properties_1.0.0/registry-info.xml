@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <item>
+        <file>raptrCredentials.properties</file>
+        <path>/_system/config/custom/prop</path>
+        <mediaType/>
+    </item>
+</resources>

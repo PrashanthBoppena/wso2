@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/employee" name="DBLookup" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/{id}">
+        <inSequence>
+            <dblookup>
+                <connection>
+                    <pool>
+                        <driver>com.mysql.jdbc.Driver</driver>
+                        <url>jdbc:mysql://localhost:3306/training?useSSL=false</url>
+                        <user>root</user>
+                        <password>Pashi@13</password>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[select fname from training.employee where id=?]]></sql>
+                    <parameter expression="get-property('uri.var.id')" type="INTEGER"/>
+                    <result column="fname" name="FName"/>
+                </statement>
+            </dblookup>
+            <payloadFactory media-type="text">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('FName')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/add">
+        <inSequence>
+            <propertyGroup description="json-eval">
+                <property expression="json-eval($.Id)" name="Id" scope="default" type="INTEGER"/>
+                <property expression="json-eval($.FName)" name="FName" scope="default" type="STRING"/>
+                <property expression="json-eval($.LName)" name="LName" scope="default" type="STRING"/>
+                <property expression="json-eval($.Mail)" name="Mail" scope="default" type="STRING"/>
+            </propertyGroup>
+            <dbreport>
+                <connection>
+                    <pool>
+                        <driver>com.mysql.cj.jdbc.Driver</driver>
+                        <url>jdbc:mysql://localhost:3306/training</url>
+                        <user>root</user>
+                        <password>Pashi@13</password>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[insert into employee values(?,?,?,?)]]></sql>
+                    <parameter expression="get-property('Id')" type="INTEGER"/>
+                    <parameter expression="get-property('FName')" type="VARCHAR"/>
+                    <parameter expression="get-property('LName')" type="VARCHAR"/>
+                    <parameter expression="get-property('Mail')" type="VARCHAR"/>
+                </statement>
+            </dbreport>
+            <payloadFactory media-type="text">
+                <format>new record added</format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

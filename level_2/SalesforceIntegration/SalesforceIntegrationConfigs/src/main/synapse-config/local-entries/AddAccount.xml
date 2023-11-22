@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="AddAccount" xmlns="http://ws.apache.org/ns/synapse">
+    <salesforcerest.init>
+        <hostName>https://login.salesforce.com</hostName>
+        <connectionType>init</connectionType>
+        <apiVersion>v44.0</apiVersion>
+        <apiUrl>https://knotsolutions9-dev-ed.develop.my.salesforce.com</apiUrl>
+        <clientSecret>3E47504D15E7674DABF994EB4A56691425B7CC139FFC65C252168B789AB97F84</clientSecret>
+        <clientId>3MVG9n_HvETGhr3DHd7XozRl.JEWwy9LcGwk243ZQrMQfJnaMop46lqU3ZfGLcWNLVZ9LkSjSK08U6RdPfOC5</clientId>
+        <accessToken>00D2w00000Jc8eX!AQoAQEhcbGNSKaOSR9lhIh0tXwHRSJeBKMRvE0IqPTuaVJOx_2svBuciw5vAM768zzo0PNGn4SQ.jZaWUvYZpnDlZZlclaZR</accessToken>
+        <name>AddAccount</name>
+        <refreshToken>5Aep861ZBQbtA4s3JWTVVpk7bCZ89KaNeYb4Pt95wNcMyMV7P9hm67jwyQmatBHck50MloO2Li8my7jo73A7k8X</refreshToken>
+    </salesforcerest.init>
+</localEntry>

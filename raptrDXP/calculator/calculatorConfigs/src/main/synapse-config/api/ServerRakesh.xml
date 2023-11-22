@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/test12" name="ServerRakesh" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <store description="publish to qieue" messageStore="CalculatorMS"/>
+            <payloadFactory description="SET RESPONSE PAYLOAD" media-type="json">
+                <format>{&#xd;
+"message":"calculation request published to myQueue."&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

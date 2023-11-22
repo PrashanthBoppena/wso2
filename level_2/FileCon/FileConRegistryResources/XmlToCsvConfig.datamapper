@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="test" schemaDataType="OBJECT" level="1">
+      <node name="information" schemaDataType="OBJECT" level="2">
+        <node name="people" schemaDataType="OBJECT" level="3">
+          <node name="person" level="4">
+            <node name="name" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/information/people/person/0/name"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.0/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <node name="age" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/information/people/person/0/age"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.1/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <node name="company" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/information/people/person/0/company"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.2/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <properties key="type" value="array"/>
+            <properties key="id" value="http://wso2jsonschema.org/information/people/person"/>
+            <properties key="items_id" value="http://wso2jsonschema.org/information/people/person/0"/>
+            <properties key="items_type" value="object"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{name={id=http://wso2jsonschema.org/information/people/person/0/name, type=string}, age={id=http://wso2jsonschema.org/information/people/person/0/age, type=number}, company={id=http://wso2jsonschema.org/information/people/person/0/company, type=string}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/information/people"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{person={id=http://wso2jsonschema.org/information/people/person, type=array, items=[{id=http://wso2jsonschema.org/information/people/person/0, type=object, properties={name={id=http://wso2jsonschema.org/information/people/person/0/name, type=string}, age={id=http://wso2jsonschema.org/information/people/person/0/age, type=number}, company={id=http://wso2jsonschema.org/information/people/person/0/company, type=string}}}]}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/information"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{people={id=http://wso2jsonschema.org/information/people, type=object, properties={person={id=http://wso2jsonschema.org/information/people/person, type=array, items=[{id=http://wso2jsonschema.org/information/people/person/0, type=object, properties={name={id=http://wso2jsonschema.org/information/people/person/0/name, type=string}, age={id=http://wso2jsonschema.org/information/people/person/0/age, type=number}, company={id=http://wso2jsonschema.org/information/people/person/0/company, type=string}}}]}}}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="root" level="1">
+      <node name="Name" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/Name"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.0/@node.0/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="Age" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/Age"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="Company" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/Company"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.0/@node.2/@outNode/@outgoingLink.0"/>
+      </node>
+      <properties key="type" value="array"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="items_id" value="http://wso2jsonschema.org/0"/>
+      <properties key="items_type" value="object"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+</datamapper:DataMapperRoot>

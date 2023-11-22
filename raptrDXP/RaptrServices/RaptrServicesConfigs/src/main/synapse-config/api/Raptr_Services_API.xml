@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/RaptrServices" name="Raptr_Services_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/login">
+        <inSequence>
+            <log level="custom">
+                <property name="login" value="calling login service"/>
+            </log>
+            <sequence key="login"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/details">
+        <inSequence>
+            <log level="custom">
+                <property name="custDetails" value="calling cust info service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8086/oms/getCustomer?customerID={uri.var.custID}&amp;tenantID=10279">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/services">
+        <inSequence>
+            <log level="custom">
+                <property name="services" value="calling cust services service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8086/oms/getCustomerAccountDetails?customerID={uri.var.custID}&amp;billingAccountID=&amp;nodeID=-1&amp;tenantID=10279">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/billingAccounts">
+        <inSequence>
+            <log level="custom">
+                <property name="billingAccs" value="calling billing Accs service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8086/oms/getBillingAccountDetails?customerID={uri.var.custID}&amp;tenantID=10279&amp;nodeID=undefined">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/bills">
+        <inSequence>
+            <log level="custom">
+                <property name="billingAccs" value="calling cust bills service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8088/billing/getCustomerBills?customerID={uri.var.custID}&amp;tenantID=10279">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/balanceShare">
+        <inSequence>
+            <log level="custom">
+                <property name="billingAccs" value="calling cust balanceShare service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8086/oms/getMUPShares?customerID={uri.var.custID}&amp;tenantID=10279">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{uri.var.custID}/customer/notifications">
+        <inSequence>
+            <log level="custom">
+                <property name="billingAccs" value="calling cust notifications service"/>
+            </log>
+            <property expression="get-property('uri.var.uri.var.custID')" name="uri.var.custID" scope="default" type="STRING"/>
+            <sequence key="login"/>
+            <header expression="fn:concat('Bearer ',get-property('authToken'))" name="Authorization" scope="transport"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://172.16.110.239:8086/oms/getAllNotification?tenantID=10279&amp;customerID={uri.var.custID}">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/test">
+        <inSequence>
+            <property expression="get-property('file',RaptrloginID)" name="loginID" scope="operation" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('file','moduleName')" name="ID"/>
+            </log>
+            <class name="com.knot.RaptrCredentials"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('cred')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

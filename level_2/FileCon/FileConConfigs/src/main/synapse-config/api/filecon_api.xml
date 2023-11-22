@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/file" name="filecon_api" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" url-mapping="/read">
+        <inSequence>
+            <file.read configKey="ReadFile">
+                <path>\customer-data.txt</path>
+                <filePattern>.*.txt</filePattern>
+                <readMode>Complete File</readMode>
+                <startLineNum>1</startLineNum>
+                <endLineNum>4</endLineNum>
+                <lineNum>1</lineNum>
+                <contentType>text/plain</contentType>
+                <includeResultTo>Message Body</includeResultTo>
+                <enableStreaming>false</enableStreaming>
+                <enableLock>false</enableLock>
+            </file.read>
+            <payloadFactory description="show" media-type="text">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$body"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/read2">
+        <inSequence>
+            <file.read configKey="ReadFile2">
+                <path>\fileconnectorgoogle.xml</path>
+                <filePattern>.*.xml</filePattern>
+                <readMode>Complete File</readMode>
+                <startLineNum>1</startLineNum>
+                <endLineNum>0</endLineNum>
+                <lineNum>1</lineNum>
+                <contentType>text/plain</contentType>
+                <includeResultTo>Message Property</includeResultTo>
+                <resultPropertyName>res</resultPropertyName>
+                <enableStreaming>false</enableStreaming>
+                <enableLock>false</enableLock>
+            </file.read>
+            <property expression="get-property('$')" name="res" scope="default" type="STRING"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <res xmlns="">$1</res>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:res"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/check-exist">
+        <inSequence>
+            <file.checkExist configKey="CheckExist">
+                <path>\customer-data.txt</path>
+                <includeResultTo>Message Body</includeResultTo>
+            </file.checkExist>
+            <payloadFactory media-type="json">
+                <format>{"status":$1}</format>
+                <args>
+                    <arg evaluator="xml" expression="//checkExistResult/fileExists/text()"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/create-folder">
+        <inSequence>
+            <property description="Folder Name" expression="json-eval($.FileName)" name="FileName" scope="default" type="STRING"/>
+            <file.checkExist configKey="checkExist">
+                <path>{get-property('FileName')}</path>
+                <includeResultTo>Message Body</includeResultTo>
+            </file.checkExist>
+            <filter regex="true" source="//checkExistResult/fileExists/text()">
+                <then>
+                    <payloadFactory media-type="text">
+                        <format>"with this name folder already exist."</format>
+                        <args/>
+                    </payloadFactory>
+                </then>
+                <else>
+                    <file.createDirectory configKey="CreateFolder">
+                        <directoryPath>{get-property('FileName')}</directoryPath>
+                    </file.createDirectory>
+                </else>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource faultSequence="FileConExampleFaultSeq" methods="POST" url-mapping="/example">
+        <inSequence>
+            <datamapper config="gov:datamapper/XmlToCsvConfig.dmc" description="XmlToCsvTransform" inputSchema="gov:datamapper/XmlToCsvConfig_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/XmlToCsvConfig_outputSchema.json" outputType="CSV" xsltStyleSheet="gov:datamapper/XmlToCsvConfig_xsltStyleSheet.xml"/>
+            <enrich description="save payload">
+                <source clone="true" type="body"/>
+                <target property="CONTENT" type="property"/>
+            </enrich>
+            <file.checkExist configKey="myLocalFileConnection">
+                <path>/employees.csv</path>
+                <includeResultTo>Message Body</includeResultTo>
+            </file.checkExist>
+            <filter regex="true" source="//checkExistResult/fileExists/text()">
+                <then>
+                    <log description="then block">
+                        <property name="Then block" value="Entered into then block"/>
+                    </log>
+                </then>
+                <else>
+                    <log description="Else block">
+                        <property name="createFile" value="&quot;Entered into else block&quot;"/>
+                    </log>
+                    <file.write configKey="myLocalFileConnection">
+                        <filePath>/employees.csv</filePath>
+                        <contentOrExpression>Name,Age,Company</contentOrExpression>
+                        <mimeType>Automatic</mimeType>
+                        <compress>false</compress>
+                        <writeMode>Create New</writeMode>
+                        <enableStreaming>false</enableStreaming>
+                        <appendNewLine>true</appendNewLine>
+                        <enableLock>false</enableLock>
+                        <includeResultTo>Message Body</includeResultTo>
+                    </file.write>
+                </else>
+            </filter>
+            <enrich description="put back saved payload">
+                <source clone="true" property="CONTENT" type="property"/>
+                <target type="body"/>
+            </enrich>
+            <file.write configKey="myLocalFileConnection">
+                <filePath>/employees.csv</filePath>
+                <mimeType>Automatic</mimeType>
+                <compress>false</compress>
+                <writeMode>Append</writeMode>
+                <appendPosition>2</appendPosition>
+                <enableStreaming>false</enableStreaming>
+                <appendNewLine>true</appendNewLine>
+                <enableLock>false</enableLock>
+                <includeResultTo>Message Body</includeResultTo>
+                <updateLastModified>false</updateLastModified>
+            </file.write>
+            <file.read configKey="myLocalFileConnection">
+                <path>/employees.csv</path>
+                <readMode>Complete File</readMode>
+                <startLineNum>1</startLineNum>
+                <endLineNum>20</endLineNum>
+                <lineNum>1</lineNum>
+                <contentType>text/plain</contentType>
+                <includeResultTo>Message Body</includeResultTo>
+                <enableStreaming>false</enableStreaming>
+                <enableLock>false</enableLock>
+            </file.read>
+            <payloadFactory media-type="text">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$body"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+    <resource methods="POST" url-mapping="/enrich">
+        <inSequence>
+            <enrich description="Req catcher">
+                <source clone="true" type="body"/>
+                <target property="Req" type="property"/>
+            </enrich>
+            <payloadFactory media-type="text">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:Req"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/ftp">
+        <inSequence>
+            <file.read configKey="Linux2">
+                <path>/hello.txt</path>
+                <filePattern>.*\.txt</filePattern>
+                <readMode>Complete File</readMode>
+                <startLineNum>1</startLineNum>
+                <endLineNum>12</endLineNum>
+                <lineNum>1</lineNum>
+                <contentType>text/plain</contentType>
+                <includeResultTo>Message Body</includeResultTo>
+                <enableStreaming>false</enableStreaming>
+                <enableLock>false</enableLock>
+            </file.read>
+            <log level="custom">
+                <property expression="$body/*" name="Msg"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" url-mapping="/change-dir">
+        <inSequence>
+            <file.listFiles configKey="In">
+                <directoryPath>/in</directoryPath>
+                <recursive>false</recursive>
+                <responseFormat>Hierarchical</responseFormat>
+                <sortingAttribute>Name</sortingAttribute>
+                <sortingOrder>Ascending</sortingOrder>
+            </file.listFiles>
+            <!-- <file.read configKey="In">
+                <path>/in/raptrInput.json</path>
+                <filePattern>.*\.json</filePattern>
+                <readMode>Complete File</readMode>
+                <startLineNum>1</startLineNum>
+                <endLineNum>20</endLineNum>
+                <lineNum>1</lineNum>
+                <contentType>application/json</contentType>
+                <includeResultTo>Message Body</includeResultTo>
+                <enableStreaming>false</enableStreaming>
+                <enableLock>false</enableLock>
+            </file.read>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$body"/>
+                </args>
+            </payloadFactory>
+             -->
+            <property expression="count(//file)" name="filesCount" scope="transport" type="STRING"/>
+            <log level="custom">
+                <property expression="$trp:filesCount" name="filesCount"/>
+            </log>
+            <iterate continueParent="true" expression="//file" id="IterateOnFiles">
+                <target>
+                    <sequence>
+                        <log level="custom">
+                            <property expression="$body/*" name="log"/>
+                        </log>
+                        <file.move configKey="In">
+                            <sourcePath>/in</sourcePath>
+                            <targetPath>/out</targetPath>
+                            <createParentDirectories>false</createParentDirectories>
+                            <includeParent>false</includeParent>
+                            <overwrite>false</overwrite>
+                            <filePattern>.*\.json</filePattern>
+                        </file.move>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

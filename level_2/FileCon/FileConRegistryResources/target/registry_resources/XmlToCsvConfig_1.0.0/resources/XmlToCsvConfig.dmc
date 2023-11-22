@@ -1,0 +1,20 @@
+map_S_test_S_root = function(){ 
+var outputroot={};
+
+var count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626 = 0;
+outputroot =  [];
+
+for(i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626 in inputtest.information.people.person){
+outputroot[count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626] =  {};
+outputroot[count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].Name = inputtest.information.people.person[i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].name;
+outputroot[count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].Age = (inputtest.information.people.person[i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].age).toString();
+outputroot[count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].Company = inputtest.information.people.person[i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626].company;
+
+count_i_person_0d9c8d04_3a88_4ce6_a9da_200d00b75626++;
+}
+return outputroot;
+};
+
+
+
+

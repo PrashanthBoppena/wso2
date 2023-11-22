@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/PdfFile" name="CreatePdfFile_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://www.mocky.io/v2/5dc71d07380000f782cdecd2">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <property expression="$body/*" name="messageBody" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('messageBody')" name="************Incoming Encoded Payload*************"/>
+            </log>
+            <property expression="base64Decode(get-property('messageBody'))" name="DecodeBody" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('DecodeBody')" name="************Decoded Payload************"/>
+            </log>
+            <log level="full"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <ns:binary xmlns:ns="http://ws.apache.org/commons/ns/payload">$1
+                    </ns:binary>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('messageBody')"/>
+                </args>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <script language="js"><![CDATA[var binaryNode = mc.getEnvelope().getBody().getFirstElement().getFirstOMChild(); binaryNode.setBinary(true);]]></script>
+            <property name="messageType" scope="axis2" type="STRING" value="application/pdf"/>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

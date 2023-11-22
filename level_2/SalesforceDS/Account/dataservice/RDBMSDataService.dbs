@@ -1,0 +1,27 @@
+<data enableBatchRequests="true" serviceStatus="active" name="RDBMSDataService" serviceNamespace="" serviceGroup="" transports="http https local">
+  <description />
+  <config id="RDBMSDatasource">
+    <property name="driverClassName">com.mysql.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/SalesforceData</property>
+    <property name="username">root</property>
+    <property name="password">Pashi@13</property>
+  </config>
+  <resource path="/get" method="GET">
+    <description />
+    <call-query href="GetReadyStatus" />
+  </resource>
+  <query id="GetReadyStatus" useConfig="RDBMSDatasource">
+    <sql>SELECT OrderNo, Status, CreateDate  FROM salesforcedata.order;</sql>
+    <result useColumnNumbers="true" outputType="json">{
+ "entries": {
+ "entry": [
+ {
+ "Id": "$column1",
+ "Status": "$column2",
+"CreateDate":"$column3"
+ }
+ ]
+ }
+}</result>
+  </query>
+</data>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/pdf-java" name="JavaWso2_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <!-- <payloadFactory media-type="text">
+                <format>Name: Boppena Prashanth</format>
+                <args/>
+            </payloadFactory>  -->
+            <property expression="$body/*" name="message" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:message" name="message log"/>
+            </log>
+            <class name="com.knot.ConvertTextToPdf"/>
+            <payloadFactory media-type="text">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:out"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

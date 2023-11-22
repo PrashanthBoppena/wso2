@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/address" name="AddressAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <property description="id" expression="json-eval($)" name="Input" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+&#xd;
+&#xd;
+"Address_info":{&#xd;
+&#xd;
+"Line1":"Bowenpally",&#xd;
+"Line2":"Paradise",&#xd;
+"City":"Secunderabad"&#xd;
+&#xd;
+}&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

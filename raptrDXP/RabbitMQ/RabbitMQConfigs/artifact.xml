@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="RabbitMQ_API" groupId="com.rabbit.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/RabbitMQ_API.xml</file>
+    </artifact>
+    <artifact name="RequestMS" groupId="com.rabbit.message-store" version="1.0.0" type="synapse/message-store" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-stores/RequestMS.xml</file>
+    </artifact>
+    <artifact name="ResponseMS" groupId="com.rabbit.message-store" version="1.0.0" type="synapse/message-store" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-stores/ResponseMS.xml</file>
+    </artifact>
+    <artifact name="OperationSeq" groupId="com.rabbit.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/OperationSeq.xml</file>
+    </artifact>
+    <artifact name="RequestMP" groupId="com.rabbit.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/RequestMP.xml</file>
+    </artifact>
+    <artifact name="ResponseMP" groupId="com.rabbit.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/ResponseMP.xml</file>
+    </artifact>
+    <artifact name="ResponseSeq" groupId="com.rabbit.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/ResponseSeq.xml</file>
+    </artifact>
+    <artifact name="AMQProxyConsumer" groupId="com.rabbit.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/AMQProxyConsumer.xml</file>
+    </artifact>
+    <artifact name="AMQPProxyProducer" groupId="com.rabbit.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/AMQPProxyProducer.xml</file>
+    </artifact>
+</artifacts>
