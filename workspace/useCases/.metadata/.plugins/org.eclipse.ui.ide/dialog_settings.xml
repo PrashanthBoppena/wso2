@@ -8,6 +8,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\WSO2Softwares\IntegrationStudio\8.1.0\workspace\useCases\EligibilityConfigCheck"/>
 			<item value="E:\WSO2Softwares\IntegrationStudio\8.1.0\workspace\useCases\Seven_API_Calling"/>
 			<item value="F:\JavaNotes\JyothiNotes\Seven_API_Calling"/>
 		</list>
