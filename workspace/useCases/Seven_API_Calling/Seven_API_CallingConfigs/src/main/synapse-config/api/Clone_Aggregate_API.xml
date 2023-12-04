@@ -2,10 +2,30 @@
 <api context="/Clone_Aggregate" name="Clone_Aggregate_API" xmlns="http://ws.apache.org/ns/synapse">
     <resource faultSequence="faultSequence" methods="POST GET">
         <inSequence>
-            <property name="process" scope="default" type="STRING" value="eligibilityConfigCheck"/>
-            <sequence key="SystemReqLogsSeq"/>
+            <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
+            <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
+            <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                <property name="process" value="eligibilityConfigCheck"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="$ctx:requestPayload" name="requestPayload"/>
+                <property expression="$ctx:SYNAPSE_REST_API" name="apiName"/>
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property name="childId" value="Main"/>
+            </class>
+            <property expression="$ctx:parentId" name="parentId" scope="transport" type="STRING"/>
             <call>
-                <endpoint key="DynamicQueryCall_EP"/>
+                <endpoint>
+                    <http method="post" uri-template="http://172.16.110.118:8285/DynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
             </call>
             <enrich>
                 <source clone="true" type="body"/>
@@ -58,32 +78,26 @@
                     <log level="custom">
                         <property name="get-property('CountWithY')==>" value="Not 0"/>
                     </log>
+                    <property description="endpointsFromReg" expression="get-property('registry', 'conf:/repository/esb/sample-endpoints.xml')" name="endpointsFromReg" scope="default" type="OM"/>
                     <clone id="cloneMediator_1" sequential="true">
                         <target>
                             <sequence>
                                 <filter regex="Y" source="//advance">
                                     <then>
-                                        <log level="custom">
-                                            <property name="//advance" value="True"/>
-                                        </log>
-                                        <property description="process" name="process" scope="default" type="STRING" value="Advance_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.Advance_API)].Advance_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="Advance_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.Advance_API)].Advance_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='Advance_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="Advance_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
-                                    <else>
-                                        <log level="custom">
-                                            <property name="//advance" value="False"/>
-                                        </log>
-                                    </else>
+                                    <else/>
                                 </filter>
                             </sequence>
                         </target>
@@ -91,27 +105,20 @@
                             <sequence>
                                 <filter regex="Y" source="//barring">
                                     <then>
-                                        <log level="custom">
-                                            <property name="//barring" value="True"/>
-                                        </log>
-                                        <property description="process" name="process" scope="default" type="STRING" value="Barring_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.Barring_API)].Barring_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="Barring_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.Barring_API)].Barring_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='Barring_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="Barring_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
-                                    <else>
-                                        <log level="custom">
-                                            <property name="//barring" value="False"/>
-                                        </log>
-                                    </else>
+                                    <else/>
                                 </filter>
                             </sequence>
                         </target>
@@ -119,18 +126,18 @@
                             <sequence>
                                 <filter regex="Y" source="//deposit">
                                     <then>
-                                        <property description="process" name="process" scope="default" type="STRING" value="Deposit_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.Deposite_API)].Deposite_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="Deposit_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.Deposite_API)].Deposite_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='Deposite_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="Deposite_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
                                     <else/>
                                 </filter>
@@ -140,18 +147,18 @@
                             <sequence>
                                 <filter regex="Y" source="//kyc_check">
                                     <then>
-                                        <property description="process" name="process" scope="default" type="STRING" value="KYC_Calling_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.KYC_Calling_API)].KYC_Calling_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="KYC_Calling_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.KYC_Calling_API)].KYC_Calling_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='KYC_Calling_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="KYC_Calling_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
                                     <else/>
                                 </filter>
@@ -161,18 +168,18 @@
                             <sequence>
                                 <filter regex="Y" source="//mah_status">
                                     <then>
-                                        <property description="process" name="process" scope="default" type="STRING" value="MAH_Status_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.MAH_Status_API)].MAH_Status_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="MAH_Status_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.MAH_Status_API)].MAH_Status_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='MAH_Status_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="MAH_Status_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
                                     <else/>
                                 </filter>
@@ -182,18 +189,18 @@
                             <sequence>
                                 <filter regex="Y" source="//msisdn_validation">
                                     <then>
-                                        <property description="process" name="process" scope="default" type="STRING" value="MSISDN_Validation_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.MSISDN_Validation_API)].MSISDN_Validation_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="MSISDN_Validation_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.MSISDN_Validation_API)].MSISDN_Validation_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='MSISDN_Validation_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="MSISDN_Validation_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
                                     <else/>
                                 </filter>
@@ -203,18 +210,18 @@
                             <sequence>
                                 <filter regex="Y" source="//pending_reports">
                                     <then>
-                                        <property description="process" name="process" scope="default" type="STRING" value="Pending_Request_API"/>
-                                        <property description="requestPayload" expression="json-eval($ctx:requestPayload.requestPayload[?(@.Pending_Request_API)].Pending_Request_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                        <propertyGroup>
+                                            <property name="process" scope="default" type="STRING" value="Pending_Request_API"/>
+                                            <property expression="json-eval($ctx:requestPayload.requestPayload[?(@.Pending_Request_API)].Pending_Request_API.request)" name="requestPayload" scope="default" type="STRING"/>
+                                            <property expression="$ctx:endpointsFromReg/*[local-name()='Pending_Request_API']" name="uri.var.uri" scope="default" type="STRING"/>
+                                        </propertyGroup>
                                         <payloadFactory description="build payload" media-type="json">
                                             <format>$1</format>
                                             <args>
                                                 <arg evaluator="xml" expression="$ctx:requestPayload"/>
                                             </args>
                                         </payloadFactory>
-                                        <log level="custom">
-                                            <property expression="json-eval($)" name="presentPayload==>"/>
-                                        </log>
-                                        <sequence key="Pending_Request_API_Seq"/>
+                                        <sequence key="GenericRestAPICallSeq"/>
                                     </then>
                                     <else/>
                                 </filter>
@@ -271,7 +278,17 @@
                                 </args>
                             </payloadFactory>
                             <property expression="json-eval($)" name="responsePayload" scope="default" type="STRING"/>
-                            <sequence key="SystemResLogsSeq"/>
+                            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                                <property expression="$ctx:parentId" name="parentId"/>
+                                <property expression="json-eval($)" name="responsePayload"/>
+                                <property name="status" value="Completed"/>
+                                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                                <property name="childId" value="Main"/>
+                            </class>
+                            <property action="remove" description="remove parentId from $trp" name="parentId" scope="transport"/>
+                            <log level="custom">
+                                <property expression="$ctx:endpointsFromReg/*[local-name()='Advance_API']" name="endpointsFromReg"/>
+                            </log>
                             <respond/>
                         </onComplete>
                     </aggregate>

@@ -15,55 +15,148 @@
   <description>Seven_API_CallingCompositeExporter</description>
   <properties>
     <com.example.metadata_._KYC_Calling_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._KYC_Calling_API_swagger>
-    <com.example.api_._MAH_Status_API>capp/EnterpriseServiceBus</com.example.api_._MAH_Status_API>
-    <com.example.sequence_._faultSequence>capp/EnterpriseServiceBus</com.example.sequence_._faultSequence>
     <com.example.api_._Barring_API>capp/EnterpriseServiceBus</com.example.api_._Barring_API>
     <com.example.metadata_._PROPERTlOADER_swagger>capp/EnterpriseServiceBus</com.example.metadata_._PROPERTlOADER_swagger>
+    <com.example.endpoint_._MSISDN_Validation_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._MSISDN_Validation_API_EP>
+    <com.example.api_._Clone_Aggregate_API>capp/EnterpriseServiceBus</com.example.api_._Clone_Aggregate_API>
+    <com.example.endpoint_._Barring_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._Barring_API_EP>
+    <com.example.metadata_._Advance_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Advance_API_metadata>
+    <com.example.metadata_._Deposite_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Deposite_API_metadata>
+    <com.example.metadata_._Deposite_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Deposite_API_swagger>
+    <com.example.endpoint_._DynamicQueryCall_EP>capp/EnterpriseServiceBus</com.example.endpoint_._DynamicQueryCall_EP>
+    <com.example.api_._Advance_API>capp/EnterpriseServiceBus</com.example.api_._Advance_API>
+    <com.example.metadata_._MSISDN_Validation_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._MSISDN_Validation_API_metadata>
+    <com.example.api_._Pending_Request_API>capp/EnterpriseServiceBus</com.example.api_._Pending_Request_API>
+    <com.example.metadata_._Barring_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Barring_API_metadata>
+    <com.example.sequence_._SystemResLogsSeq>capp/EnterpriseServiceBus</com.example.sequence_._SystemResLogsSeq>
+    <com.example.endpoint_._KYC_Calling_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._KYC_Calling_API_EP>
+    <com.example.metadata_._MAH_Status_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._MAH_Status_API_swagger>
+    <com.example.metadata_._Pending_Request_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Pending_Request_API_metadata>
+    <com.example.metadata_._MSISDN_Validation_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._MSISDN_Validation_API_swagger>
+    <com.example.sequence_._SystemReqLogsSeq>capp/EnterpriseServiceBus</com.example.sequence_._SystemReqLogsSeq>
+    <com.example.endpoint_._MAH_Status_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._MAH_Status_API_EP>
+    <com.example.sequence_._KYC_Calling_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._KYC_Calling_API_Seq>
+    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.api_._KYC_Calling_API>capp/EnterpriseServiceBus</com.example.api_._KYC_Calling_API>
+    <com.example.sequence_._GenericRestAPICallSeq>capp/EnterpriseServiceBus</com.example.sequence_._GenericRestAPICallSeq>
+    <com.example.api_._MAH_Status_API>capp/EnterpriseServiceBus</com.example.api_._MAH_Status_API>
+    <com.example.sequence_._faultSequence>capp/EnterpriseServiceBus</com.example.sequence_._faultSequence>
     <com.example.sequence_._MAH_Status_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._MAH_Status_API_Seq>
     <com.example.metadata_._Clone_Aggregate_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Clone_Aggregate_API_metadata>
     <com.example.api_._Deposite_API>capp/EnterpriseServiceBus</com.example.api_._Deposite_API>
-    <com.example.endpoint_._MSISDN_Validation_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._MSISDN_Validation_API_EP>
     <com.example.endpoint_._Deposite_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._Deposite_API_EP>
-    <com.example.api_._Clone_Aggregate_API>capp/EnterpriseServiceBus</com.example.api_._Clone_Aggregate_API>
     <com.example.sequence_._Deposite_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._Deposite_API_Seq>
     <com.example.sequence_._Pending_Request_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._Pending_Request_API_Seq>
     <com.example.metadata_._MAH_Status_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._MAH_Status_API_metadata>
     <com.example.metadata_._KYC_Calling_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._KYC_Calling_API_metadata>
-    <com.example.endpoint_._Barring_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._Barring_API_EP>
-    <com.example.metadata_._Advance_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Advance_API_metadata>
-    <com.example.metadata_._Deposite_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Deposite_API_metadata>
     <com.example.sequence_._Barring_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._Barring_API_Seq>
     <com.example.sequence_._CommonAPISeqPropertiesCollectionSeq>capp/EnterpriseServiceBus</com.example.sequence_._CommonAPISeqPropertiesCollectionSeq>
     <com.example.api_._MSISDN_Validation_API>capp/EnterpriseServiceBus</com.example.api_._MSISDN_Validation_API>
-    <com.example.metadata_._Deposite_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Deposite_API_swagger>
-    <com.example.endpoint_._DynamicQueryCall_EP>capp/EnterpriseServiceBus</com.example.endpoint_._DynamicQueryCall_EP>
-    <com.example.api_._Advance_API>capp/EnterpriseServiceBus</com.example.api_._Advance_API>
     <com.example.metadata_._Barring_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Barring_API_swagger>
     <com.example.sequence_._Advance_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._Advance_API_Seq>
-    <com.example.metadata_._MSISDN_Validation_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._MSISDN_Validation_API_metadata>
-    <com.example.api_._Pending_Request_API>capp/EnterpriseServiceBus</com.example.api_._Pending_Request_API>
-    <com.example.metadata_._Barring_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Barring_API_metadata>
-    <com.example.metadata_._MAH_Status_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._MAH_Status_API_swagger>
-    <com.example.endpoint_._KYC_Calling_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._KYC_Calling_API_EP>
-    <com.example.metadata_._Pending_Request_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Pending_Request_API_metadata>
     <com.example.sequence_._MSISDN_Validation_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._MSISDN_Validation_API_Seq>
     <com.example.metadata_._Advance_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Advance_API_swagger>
-    <com.example.metadata_._MSISDN_Validation_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._MSISDN_Validation_API_swagger>
     <com.example.api_._PROPERTlOADER>capp/EnterpriseServiceBus</com.example.api_._PROPERTlOADER>
     <com.example.metadata_._PROPERTlOADER_metadata>capp/EnterpriseServiceBus</com.example.metadata_._PROPERTlOADER_metadata>
-    <com.example.endpoint_._MAH_Status_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._MAH_Status_API_EP>
     <com.example.endpoint_._Advance_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._Advance_API_EP>
     <com.example.endpoint_._Pending_Request_API_EP>capp/EnterpriseServiceBus</com.example.endpoint_._Pending_Request_API_EP>
     <com.example.metadata_._Clone_Aggregate_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Clone_Aggregate_API_swagger>
     <com.example.metadata_._Pending_Request_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._Pending_Request_API_swagger>
-    <com.example.sequence_._KYC_Calling_API_Seq>capp/EnterpriseServiceBus</com.example.sequence_._KYC_Calling_API_Seq>
-    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
-    <com.example.api_._KYC_Calling_API>capp/EnterpriseServiceBus</com.example.api_._KYC_Calling_API>
   </properties>
   <dependencies>
     <dependency>
       <groupId>com.example.sequence</groupId>
       <artifactId>CommonAPISeqPropertiesCollectionSeq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>Advance_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>Barring_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>Deposite_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>DynamicQueryCall_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>KYC_Calling_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>MAH_Status_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>MSISDN_Validation_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>Pending_Request_API_EP</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>Advance_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>Barring_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>Deposite_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>KYC_Calling_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>MAH_Status_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>MSISDN_Validation_API_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>Pending_Request_API_Seq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
@@ -230,92 +323,20 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>Advance_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>Barring_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>Deposite_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>DynamicQueryCall_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>KYC_Calling_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>MAH_Status_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>MSISDN_Validation_API_EP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>Pending_Request_API_EP</artifactId>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>GenericRestAPICallSeq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.sequence</groupId>
-      <artifactId>Advance_API_Seq</artifactId>
+      <artifactId>SystemReqLogsSeq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.sequence</groupId>
-      <artifactId>Barring_API_Seq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>Deposite_API_Seq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>KYC_Calling_API_Seq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>MAH_Status_API_Seq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>MSISDN_Validation_API_Seq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>Pending_Request_API_Seq</artifactId>
+      <artifactId>SystemResLogsSeq</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
