@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/FreeMarker_template" name="FreeMarker_template_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+"Name": "${payload.user.first_name} ${payload.user.last_name}",
+"Age": "${payload.user.age}",
+"Address": "${payload.user.location.city},${payload.user.location.state.@code}"
+}]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

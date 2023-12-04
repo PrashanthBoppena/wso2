@@ -71,4 +71,13 @@
     <artifact name="BscsReportUpdateLogSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/BscsReportUpdateLogSequence.xml</file>
     </artifact>
+    <artifact name="FreeMarker_template_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FreeMarker_template_API.xml</file>
+    </artifact>
+    <artifact name="FreeMarker_template_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FreeMarker_template_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="FreeMarker_template_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FreeMarker_template_API_metadata.yaml</file>
+    </artifact>
 </artifacts>

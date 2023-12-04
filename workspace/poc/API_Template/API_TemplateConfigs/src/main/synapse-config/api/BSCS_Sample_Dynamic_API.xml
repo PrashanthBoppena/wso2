@@ -9,10 +9,6 @@
                 <property expression="get-property('SYNAPSE_REST_API')" name="Api" scope="default" type="STRING"/>
                 <property expression="json-eval($.customer_id)" name="cust_id" scope="default" type="STRING"/>
             </propertyGroup>
-            <property description="process name" name="Process" scope="default" type="STRING" value="API IN/OUT"/>
-            <log level="custom">
-                <property expression="json-eval($ctx:cust_id)" name="cust_id"/>
-            </log>
             <payloadFactory media-type="xml">
                 <format>
                     <soapenv:Envelope xmlns:cus="http://ericsson.com/services/ws_CIL_7/customerread" xmlns:ses="http://ericsson.com/services/ws_CIL_7/sessionchange" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -59,9 +55,6 @@
                     <arg evaluator="json" expression="$ctx:cust_id"/>
                 </args>
             </payloadFactory>
-            <log level="custom">
-                <property expression="$body/*" name="customer req data"/>
-            </log>
             <header name="Action" scope="default" value="urn:customerRead"/>
             <call>
                 <endpoint>

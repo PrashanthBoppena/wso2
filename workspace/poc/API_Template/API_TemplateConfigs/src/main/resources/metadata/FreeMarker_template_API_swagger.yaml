@@ -1,0 +1,17 @@
+openapi: 3.0.1
+info:
+  title: FreeMarker_template_API
+  description: API Definition of FreeMarker_template_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/FreeMarker_template
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response
+    post:
+      responses:
+        default:
+          description: Default response

@@ -14,10 +14,13 @@
   <name>API_TemplateCompositeExporter</name>
   <description>API_TemplateCompositeExporter</description>
   <properties>
+    <com.example.api_._FreeMarker_template_API>capp/EnterpriseServiceBus</com.example.api_._FreeMarker_template_API>
     <com.example.api_._BSCS_Sample_Dynamic_API>capp/EnterpriseServiceBus</com.example.api_._BSCS_Sample_Dynamic_API>
     <com.example.local-entry_._FILE_CONNECTION_1>capp/EnterpriseServiceBus</com.example.local-entry_._FILE_CONNECTION_1>
+    <com.example.metadata_._FreeMarker_template_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._FreeMarker_template_API_swagger>
     <com.example.metadata_._FileTransferToServer_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._FileTransferToServer_API_swagger>
     <com.example.metadata_._BSCS_Sample_Dynamic_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._BSCS_Sample_Dynamic_API_metadata>
+    <com.example.metadata_._FreeMarker_template_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._FreeMarker_template_API_metadata>
     <com.example.metadata_._SampleAPI_metadata>capp/EnterpriseServiceBus</com.example.metadata_._SampleAPI_metadata>
     <com.example.metadata_._SampleAPI_swagger>capp/EnterpriseServiceBus</com.example.metadata_._SampleAPI_swagger>
     <com.example.metadata_._FileTransferToServer_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._FileTransferToServer_API_metadata>
@@ -91,6 +94,24 @@
     <dependency>
       <groupId>com.example.api</groupId>
       <artifactId>BSCS_Sample_Dynamic_API</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>FreeMarker_template_API_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>FreeMarker_template_API_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>FreeMarker_template_API</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
