@@ -14,8 +14,59 @@
   <name>BSCSCompositeExporter</name>
   <description>BSCSCompositeExporter</description>
   <properties>
+    <com.knot.sequence_._DynamicSOAPSequence>capp/EnterpriseServiceBus</com.knot.sequence_._DynamicSOAPSequence>
+    <com.knot.sequence_._DynamicEBSequence>capp/EnterpriseServiceBus</com.knot.sequence_._DynamicEBSequence>
+    <com.knot.metadata_._BSCS_SOAP_API_Call_swagger>capp/EnterpriseServiceBus</com.knot.metadata_._BSCS_SOAP_API_Call_swagger>
+    <com.knot.metadata_._BSCS_SOAP_API_Call_metadata>capp/EnterpriseServiceBus</com.knot.metadata_._BSCS_SOAP_API_Call_metadata>
+    <com.knot.sequence_._EBFaultSequence>capp/EnterpriseServiceBus</com.knot.sequence_._EBFaultSequence>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.knot.api_._BSCS_SOAP_API_Call>capp/EnterpriseServiceBus</com.knot.api_._BSCS_SOAP_API_Call>
+    <com.knot.sequence_._FaultSequence>capp/EnterpriseServiceBus</com.knot.sequence_._FaultSequence>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>FaultSequence</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>DynamicSOAPSequence</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.metadata</groupId>
+      <artifactId>BSCS_SOAP_API_Call_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.metadata</groupId>
+      <artifactId>BSCS_SOAP_API_Call_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.api</groupId>
+      <artifactId>BSCS_SOAP_API_Call</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>DynamicEBSequence</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>EBFaultSequence</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <releases>

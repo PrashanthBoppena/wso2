@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><artifacts/>
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="DynamicEBSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/DynamicEBSequence.xml</file>
+    </artifact>
+    <artifact name="BSCS_SOAP_API_Call" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BSCS_SOAP_API_Call.xml</file>
+    </artifact>
+    <artifact name="BSCS_SOAP_API_Call_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BSCS_SOAP_API_Call_swagger.yaml</file>
+    </artifact>
+    <artifact name="BSCS_SOAP_API_Call_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BSCS_SOAP_API_Call_metadata.yaml</file>
+    </artifact>
+    <artifact name="EBFaultSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EBFaultSequence.xml</file>
+    </artifact>
+</artifacts>

@@ -6360,3 +6360,12 @@ org.jsoup.HttpStatusException: HTTP error fetching URL. Status=403, URL=https://
 	at org.wso2.integrationstudio.updater.handler.RunUpdaterRootJob.checkUpdatesAvailable(RunUpdaterRootJob.java:70)
 	at org.wso2.integrationstudio.updater.handler.RunUpdaterRootJob.run(RunUpdaterRootJob.java:64)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.gmf.runtime.draw2d.ui 2 2 2023-12-05 17:24:39.084
+!MESSAGE MapModeUtil#getMapMode(IFigure fig) fig parameter must be attached to a parent - using default MapMode
+
+!ENTRY org.eclipse.gmf.runtime.draw2d.ui 2 2 2023-12-05 17:24:39.203
+!MESSAGE MapModeUtil#getMapMode(IFigure fig) fig parameter must be attached to a parent - using default MapMode
+
+!ENTRY org.eclipse.gmf.runtime.draw2d.ui 2 2 2023-12-05 17:24:40.978
+!MESSAGE MapModeUtil#getMapMode(IFigure fig) fig parameter must be attached to a parent - using default MapMode
