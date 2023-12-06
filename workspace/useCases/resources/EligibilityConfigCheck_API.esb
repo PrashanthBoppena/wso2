@@ -253,18 +253,6 @@
                             <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                             <sourceXPath prettyName="Endpoint XPath" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                           </children>
-                          <children xsi:type="esb:LogMediator" description="log response" logLevel="CUSTOM" logSeparator=", ">
-                            <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.8/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
-                            <outputConnector>
-                              <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.8/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.9/@inputConnector"/>
-                            </outputConnector>
-                            <properties propertyName="APIResponse" propertyValueType="EXPRESSION" propertyValue="">
-                              <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                            </properties>
-                            <properties propertyName="Process_ID" propertyValueType="EXPRESSION" propertyValue="">
-                              <propertyExpression propertyValue="$ctx:Child_Process_ID" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                            </properties>
-                          </children>
                           <children xsi:type="esb:ClassMediator" description="SystemResponseLogs" className="com.knot.uol.utils.SystemResponseUpdateLog">
                             <properties propertyName="parentId" propertyValueType="EXPRESSION">
                               <propertyExpression propertyValue="$ctx:parentId" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
@@ -284,7 +272,7 @@
                             <properties propertyName="childId" propertyValueType="EXPRESSION">
                               <propertyExpression propertyValue="$ctx:childId" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                             </properties>
-                            <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.8/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.8/@outputConnector/@outgoingLink"/>
+                            <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.8/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
                             <outputConnector/>
                           </children>
                         </mediatorFlow>

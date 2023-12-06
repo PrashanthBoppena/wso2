@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_8hLHcJP9Ee6R_v_HJusReQ" type="Esb" name="temp_seq_id_001" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_8i4-sJP9Ee6R_v_HJusReQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_8i4-tZP9Ee6R_v_HJusReQ" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_8uLBoJP9Ee6R_v_HJusReQ" type="3664" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_8uLosJP9Ee6R_v_HJusReQ" type="7043">
+          <children xmi:type="notation:Node" xmi:id="_8uhm8JP9Ee6R_v_HJusReQ" type="3665">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_8uhm8ZP9Ee6R_v_HJusReQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_8uhm8pP9Ee6R_v_HJusReQ" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_8uhm85P9Ee6R_v_HJusReQ"/>
+            <element xmi:type="esb:Sequences" href="temp_seq_id_001.esb#//@server/@children.0/@child"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8uhm9JP9Ee6R_v_HJusReQ" width="195" height="125"/>
+          </children>
+        </children>
+        <element xmi:type="esb:Template" href="temp_seq_id_001.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8uLBoZP9Ee6R_v_HJusReQ" width="3000" height="3000"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8i4-sZP9Ee6R_v_HJusReQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8i4-spP9Ee6R_v_HJusReQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8i4-s5P9Ee6R_v_HJusReQ"/>
+    <element xmi:type="esb:EsbServer" href="temp_seq_id_001.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8i4-tJP9Ee6R_v_HJusReQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_8hLHcZP9Ee6R_v_HJusReQ"/>
+  <element xmi:type="esb:EsbDiagram" href="temp_seq_id_001.esb#/"/>
+</notation:Diagram>

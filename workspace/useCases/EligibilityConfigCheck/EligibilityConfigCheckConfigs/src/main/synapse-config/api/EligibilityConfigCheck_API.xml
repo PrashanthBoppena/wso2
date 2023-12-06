@@ -92,10 +92,6 @@ for (var i = 0; i < responseArray.length; i++) {
                                 </propertyGroup>
                                 <header description="constructAPI" expression="fn:concat($ctx:host,$ctx:context)" name="To" scope="default"/>
                                 <call/>
-                                <log description="log response" level="custom">
-                                    <property expression="json-eval($)" name="APIResponse"/>
-                                    <property expression="$ctx:Child_Process_ID" name="Process_ID"/>
-                                </log>
                                 <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
                                     <property expression="$ctx:parentId" name="parentId"/>
                                     <property expression="$ctx:processId" name="processId"/>

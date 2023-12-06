@@ -14,4 +14,7 @@
     <artifact name="EBFaultSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/EBFaultSequence.xml</file>
     </artifact>
+    <artifact name="temp_seq_id_001" groupId="com.knot.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/temp_seq_id_001.xml</file>
+    </artifact>
 </artifacts>
