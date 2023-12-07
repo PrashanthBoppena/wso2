@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="getLog"/>
 			<item value="connectToDatabase"/>
 			<item value="getQueryConfigFromDatabase"/>
 			<item value="boolean"/>
@@ -22,7 +23,6 @@
 			<item value="ReqExchange"/>
 			<item value="ReqQueue"/>
 			<item value="store"/>
-			<item value="source"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

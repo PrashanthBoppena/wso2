@@ -11,4 +11,13 @@
     <artifact name="compositeDynamicSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/compositeDynamicSeq.xml</file>
     </artifact>
+    <artifact name="REST_API_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/REST_API_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="EB_SOAP_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EB_SOAP_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="Dynamic_Query_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_Query_Call_Seq.xml</file>
+    </artifact>
 </artifacts>

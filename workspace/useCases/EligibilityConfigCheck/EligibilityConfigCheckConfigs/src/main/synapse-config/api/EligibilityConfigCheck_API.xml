@@ -58,6 +58,7 @@ for (var i = 0; i < responseArray.length; i++) {
                                     <property expression="//Process_Name" name="process" scope="default" type="STRING"/>
                                     <property expression="//Endpoint" name="endpoint" scope="default" type="STRING"/>
                                     <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                                    <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
                                 </propertyGroup>
                                 <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
                                 <payloadFactory media-type="xml">
@@ -85,13 +86,7 @@ for (var i = 0; i < responseArray.length; i++) {
                                     <property expression="$ctx:processId" name="processId"/>
                                     <property expression="$ctx:childId" name="childId"/>
                                 </class>
-                                <propertyGroup description="save api configs">
-                                    <property expression="$ctx:HTTP_Method" name="HTTP_METHOD" scope="axis2" type="STRING"/>
-                                    <property expression="get-property('file','hostAdd')" name="host" scope="default" type="STRING"/>
-                                    <property expression="$ctx:endpoint" name="context" scope="default" type="STRING"/>
-                                </propertyGroup>
-                                <header description="constructAPI" expression="fn:concat($ctx:host,$ctx:context)" name="To" scope="default"/>
-                                <call/>
+                                <sequence key="compositeDynamicSeq"/>
                                 <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
                                     <property expression="$ctx:parentId" name="parentId"/>
                                     <property expression="$ctx:processId" name="processId"/>
@@ -106,6 +101,9 @@ for (var i = 0; i < responseArray.length; i++) {
                     </sequence>
                 </target>
             </iterate>
+            <log level="custom">
+                <property expression="json-eval($)" name="@@@@@@@@@@@@@@@@@@@@@@==>"/>
+            </log>
             <payloadFactory media-type="json">
                 <format>{&#xd;
 "$1":$2&#xd;

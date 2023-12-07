@@ -125,6 +125,28 @@
                       <element xmi:type="esb:Sequence" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3"/>
                       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6hOrFJTQEe6JWI6dfBWyqw" x="276" y="72"/>
                     </children>
+                    <children xmi:type="notation:Node" xmi:id="_ZRAr8JTuEe6JWI6dfBWyqw" type="3503">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_ZRAr9ZTuEe6JWI6dfBWyqw" type="5132"/>
+                      <children xmi:type="notation:Node" xmi:id="_ZRksoJTuEe6JWI6dfBWyqw" type="3049">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZRksoZTuEe6JWI6dfBWyqw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_ZRksopTuEe6JWI6dfBWyqw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_ZRkso5TuEe6JWI6dfBWyqw"/>
+                        <element xmi:type="esb:SequenceInputConnector" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZRkspJTuEe6JWI6dfBWyqw"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_ZR8gEJTuEe6JWI6dfBWyqw" type="3050">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZR8gEZTuEe6JWI6dfBWyqw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_ZR8gEpTuEe6JWI6dfBWyqw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_ZR8gE5TuEe6JWI6dfBWyqw"/>
+                        <element xmi:type="esb:SequenceOutputConnector" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZR8gFJTuEe6JWI6dfBWyqw"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZRAr8ZTuEe6JWI6dfBWyqw"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_ZRAr8pTuEe6JWI6dfBWyqw" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_ZRAr85TuEe6JWI6dfBWyqw"/>
+                      <element xmi:type="esb:Sequence" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZRAr9JTuEe6JWI6dfBWyqw" x="400" y="72"/>
+                    </children>
                     <styles xmi:type="notation:TitleStyle" xmi:id="_sstwJpTBEe6JWI6dfBWyqw" showTitle="true"/>
                   </children>
                   <styles xmi:type="notation:DescriptionStyle" xmi:id="_sstwIZTBEe6JWI6dfBWyqw"/>
@@ -186,9 +208,14 @@
     <element xmi:type="esb:EsbLink" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector.0/@outgoingLink"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6haRQpTQEe6JWI6dfBWyqw" points="[6, 3, -22, 0]$[22, 0, -6, -3]"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_u7cIIJTaEe6JWI6dfBWyqw" type="4001" source="_6hS8gJTQEe6JWI6dfBWyqw" target="_stZFkJTBEe6JWI6dfBWyqw" roundedBendpointsRadius="5" routing="Rectilinear">
-    <styles xmi:type="notation:FontStyle" xmi:id="_u7cIIZTaEe6JWI6dfBWyqw" fontName="Segoe UI"/>
+  <edges xmi:type="notation:Connector" xmi:id="_ZUVswJTuEe6JWI6dfBWyqw" type="4001" source="_6hS8gJTQEe6JWI6dfBWyqw" target="_ZRksoJTuEe6JWI6dfBWyqw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZUVswZTuEe6JWI6dfBWyqw" fontName="Segoe UI"/>
     <element xmi:type="esb:EsbLink" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector.0/@outgoingLink"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u7cIIpTaEe6JWI6dfBWyqw" points="[6, 0, -160, 0]$[160, 0, -6, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZUVswpTuEe6JWI6dfBWyqw" points="[6, 3, -21, 0]$[21, 0, -6, -3]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ZUXh8JTuEe6JWI6dfBWyqw" type="4001" source="_ZR8gEJTuEe6JWI6dfBWyqw" target="_stZFkJTBEe6JWI6dfBWyqw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZUXh8ZTuEe6JWI6dfBWyqw" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="BSCS_SOAP_API_Call.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector.0/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZUXh8pTuEe6JWI6dfBWyqw" points="[6, -3, -8, 0]$[8, 0, -6, 3]"/>
   </edges>
 </notation:Diagram>

@@ -15,12 +15,22 @@
   <description>EligibilityConfigCheckCompositeExporter</description>
   <properties>
     <com.knot.api_._EligibilityConfigCheck_API>capp/EnterpriseServiceBus</com.knot.api_._EligibilityConfigCheck_API>
+    <com.knot.sequence_._Dynamic_Query_Call_Seq>capp/EnterpriseServiceBus</com.knot.sequence_._Dynamic_Query_Call_Seq>
     <com.knot.resource_._CommonAPISeqPropertiesCollectionSeq_xml>capp/EnterpriseIntegrator</com.knot.resource_._CommonAPISeqPropertiesCollectionSeq_xml>
     <com.knot.metadata_._EligibilityConfigCheck_API_metadata>capp/EnterpriseServiceBus</com.knot.metadata_._EligibilityConfigCheck_API_metadata>
     <com.knot.metadata_._EligibilityConfigCheck_API_swagger>capp/EnterpriseServiceBus</com.knot.metadata_._EligibilityConfigCheck_API_swagger>
+    <com.knot.sequence_._REST_API_Call_Seq>capp/EnterpriseServiceBus</com.knot.sequence_._REST_API_Call_Seq>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.knot.sequence_._compositeDynamicSeq>capp/EnterpriseServiceBus</com.knot.sequence_._compositeDynamicSeq>
+    <com.knot.sequence_._EB_SOAP_Call_Seq>capp/EnterpriseServiceBus</com.knot.sequence_._EB_SOAP_Call_Seq>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>com.knot.resource</groupId>
+      <artifactId>CommonAPISeqPropertiesCollectionSeq_xml</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
     <dependency>
       <groupId>com.knot.metadata</groupId>
       <artifactId>EligibilityConfigCheck_API_metadata</artifactId>
@@ -40,10 +50,28 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.knot.resource</groupId>
-      <artifactId>CommonAPISeqPropertiesCollectionSeq_xml</artifactId>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>Dynamic_Query_Call_Seq</artifactId>
       <version>1.0.0</version>
-      <type>zip</type>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>EB_SOAP_Call_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>REST_API_Call_Seq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.sequence</groupId>
+      <artifactId>compositeDynamicSeq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>
