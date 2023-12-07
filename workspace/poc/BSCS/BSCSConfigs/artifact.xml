@@ -17,4 +17,22 @@
     <artifact name="temp_seq_id_001" groupId="com.knot.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/templates/temp_seq_id_001.xml</file>
     </artifact>
+    <artifact name="temp_seq_LE_001" groupId="com.knot.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/temp_seq_LE_001.xml</file>
+    </artifact>
+    <artifact name="BSCS_SOAP_Proxy_Call" groupId="com.knot.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/BSCS_SOAP_Proxy_Call.xml</file>
+    </artifact>
+    <artifact name="BSCS_SOAP_Proxy_Call_proxy_metadata" groupId="com.knot.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BSCS_SOAP_Proxy_Call_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="DynamicEBSequence_Script" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/DynamicEBSequence_Script.xml</file>
+    </artifact>
+    <artifact name="temp_seq_LE_002" groupId="com.knot.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/temp_seq_LE_002.xml</file>
+    </artifact>
+    <artifact name="DynamicPropertySetterSequence_Script" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/DynamicPropertySetterSequence_Script.xml</file>
+    </artifact>
 </artifacts>

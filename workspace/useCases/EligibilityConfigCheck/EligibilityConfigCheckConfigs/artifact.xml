@@ -8,4 +8,7 @@
     <artifact name="EligibilityConfigCheck_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/EligibilityConfigCheck_API_metadata.yaml</file>
     </artifact>
+    <artifact name="compositeDynamicSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/compositeDynamicSeq.xml</file>
+    </artifact>
 </artifacts>

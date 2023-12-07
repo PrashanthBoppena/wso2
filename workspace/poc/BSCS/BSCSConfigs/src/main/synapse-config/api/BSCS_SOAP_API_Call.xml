@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/bscs_api_call" name="BSCS_SOAP_API_Call" xmlns="http://ws.apache.org/ns/synapse">
     <resource faultSequence="EBFaultSequence" methods="POST GET">
-        <inSequence/>
+        <inSequence>
+            <propertyGroup>
+                <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <sequence key="DynamicPropertySetterSequence_Script"/>
+            <sequence key="DynamicEBSequence_Script"/>
+            <respond/>
+        </inSequence>
         <outSequence/>
     </resource>
 </api>
