@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/dynamic_mediation_seq" name="DynamicMediationSequence" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST GET">
+        <inSequence>
+            <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+    "queryName": "CUS_OnBoarding",&#xd;
+    "parameters": {&#xd;
+&#xd;
+        "API_Name":"CUS_OnBoarding"&#xd;
+    }&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <call description="DynamicQueryCall">
+                <endpoint>
+                    <http method="post" uri-template="$FILE:dynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.response"/>
+                </args>
+            </payloadFactory>
+            <script description="countEnableFlags" language="js"><![CDATA[var responseArray  = mc.getPayloadJSON();
+
+		var count = 0;
+
+for (var i = 0; i < responseArray.length; i++) {
+    if (responseArray[i].Enable_Flag === "1") {
+        count++;
+    }
+}
+
+        
+        mc.setProperty("EnableFlagCount", count);]]></script>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
+            </log>
+            <property name="X" scope="default" type="STRING" value="1"/>
+            <iterate expression="//jsonElement" id="DynamicMediationSeq_Itr1" sequential="true">
+                <target>
+                    <sequence>
+                        <log level="custom">
+                            <property expression="get-property('csId')" name="csId===>"/>
+                        </log>
+                        <propertyGroup>
+                            <property expression="//API_Name" name="API_Name" scope="default" type="STRING"/>
+                            <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                            <property expression="//Process_ID" name="Process_ID" scope="default" type="STRING"/>
+                            <property expression="//Process_Name" name="Process_Name" scope="default" type="STRING"/>
+                            <property expression="//Enable_Flag" name="Enable_Flag" scope="default" type="STRING"/>
+                            <property expression="//Endpoint" name="Endpoint" scope="default" type="STRING"/>
+                            <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                            <property expression="//Request_Type" name="Request_Type" scope="default" type="STRING"/>
+                            <property expression="//Req_Payload" name="req_template_ID" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <filter regex="1" source="$ctx:Enable_Flag">
+                            <then>
+                                <switch source="$ctx:System_Name">
+                                    <case regex="REST">
+                                        <sequence key="REST_API_Call_Seq"/>
+                                    </case>
+                                    <case regex="EB">
+                                        <payloadFactory media-type="json">
+                                            <format>$1</format>
+                                            <args>
+                                                <arg evaluator="xml" expression="$ctx:API_Request"/>
+                                            </args>
+                                        </payloadFactory>
+                                        <sequence key="gov:custom/sequences/DynamicEBSequence.xml"/>
+                                        <property expression="get-property('X')+1" name="X" scope="default" type="STRING"/>
+                                        <switch source="$ctx:Process_Name">
+                                            <case regex="Customer_Creation">
+                                                <log level="custom">
+                                                    <property expression="json-eval($.customerCreateResponse.customerNew.csId)" name="in switch===>"/>
+                                                    <property expression="get-property('X')+1" name="Increase X value==>"/>
+                                                </log>
+                                                <property expression="json-eval($.customerCreateResponse.customerNew.csId)" name="csId" scope="default" type="INTEGER"/>
+                                                <property expression="get-property('X')+get-property('csId')" name="X" scope="default" type="STRING"/>
+                                                <log level="custom">
+                                                    <property expression="get-property('X')+get-property('csId')" name="csId"/>
+                                                </log>
+                                            </case>
+                                            <default/>
+                                        </switch>
+                                        <log level="custom">
+                                            <property expression="get-property('csId')" name="new cs Id@@@"/>
+                                        </log>
+                                    </case>
+                                    <default/>
+                                </switch>
+                            </then>
+                            <else>
+                                <log level="custom">
+                                    <property expression="$ctx:Process_Name" name="Else==>"/>
+                                </log>
+                            </else>
+                        </filter>
+                    </sequence>
+                </target>
+            </iterate>
+            <aggregate id="DynamicMediationSeq_Itr1">
+                <completeCondition>
+                    <messageCount max="{get-property('EnableFlagCount')}" min="0"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

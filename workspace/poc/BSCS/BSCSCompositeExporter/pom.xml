@@ -21,6 +21,7 @@
     <com.knot.sequence_._FaultSequence>capp/EnterpriseServiceBus</com.knot.sequence_._FaultSequence>
     <com.knot.sequence_._DynamicPropertySetterSequence_Script>capp/EnterpriseServiceBus</com.knot.sequence_._DynamicPropertySetterSequence_Script>
     <com.knot.local-entry_._temp_seq_LE_001>capp/EnterpriseServiceBus</com.knot.local-entry_._temp_seq_LE_001>
+    <com.knot.local-entry_._temp_seq_LE_003>capp/EnterpriseServiceBus</com.knot.local-entry_._temp_seq_LE_003>
     <com.knot.local-entry_._temp_seq_LE_002>capp/EnterpriseServiceBus</com.knot.local-entry_._temp_seq_LE_002>
     <com.knot.sequence_._DynamicEBSequence_Script>capp/EnterpriseServiceBus</com.knot.sequence_._DynamicEBSequence_Script>
     <com.knot.sequence_._DynamicSOAPSequence>capp/EnterpriseServiceBus</com.knot.sequence_._DynamicSOAPSequence>
@@ -70,6 +71,12 @@
     <dependency>
       <groupId>com.knot.local-entry</groupId>
       <artifactId>temp_seq_LE_002</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.knot.local-entry</groupId>
+      <artifactId>temp_seq_LE_003</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>

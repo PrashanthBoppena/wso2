@@ -20,4 +20,13 @@
     <artifact name="Dynamic_Query_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/Dynamic_Query_Call_Seq.xml</file>
     </artifact>
+    <artifact name="DynamicMediationSequence" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/DynamicMediationSequence.xml</file>
+    </artifact>
+    <artifact name="DynamicMediationSequence_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/DynamicMediationSequence_swagger.yaml</file>
+    </artifact>
+    <artifact name="DynamicMediationSequence_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/DynamicMediationSequence_metadata.yaml</file>
+    </artifact>
 </artifacts>

@@ -86,7 +86,7 @@ for (var i = 0; i < responseArray.length; i++) {
                                     <property expression="$ctx:processId" name="processId"/>
                                     <property expression="$ctx:childId" name="childId"/>
                                 </class>
-                                <sequence key="compositeDynamicSeq"/>
+                                <sequence key="REST_API_Call_Seq"/>
                                 <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
                                     <property expression="$ctx:parentId" name="parentId"/>
                                     <property expression="$ctx:processId" name="processId"/>

@@ -5,7 +5,7 @@
       <outputConnector>
         <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
       </outputConnector>
-      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
       <mediatorFlow>
         <children xsi:type="esb:PropertyMediator" description="apiregistryConfigPath" valueType="EXPRESSION" newPropertyName="apiregistryConfigPath">
           <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
@@ -42,6 +42,12 @@
             <argumentExpression propertyValue="$ctx:responsePayload" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
           </args>
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.5/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:RespondMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@inputConnector"/>
           </outputConnector>

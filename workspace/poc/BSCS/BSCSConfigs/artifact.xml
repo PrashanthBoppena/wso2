@@ -35,4 +35,7 @@
     <artifact name="DynamicPropertySetterSequence_Script" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/DynamicPropertySetterSequence_Script.xml</file>
     </artifact>
+    <artifact name="temp_seq_LE_003" groupId="com.knot.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/temp_seq_LE_003.xml</file>
+    </artifact>
 </artifacts>

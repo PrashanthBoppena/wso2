@@ -15,4 +15,5 @@
             <arg evaluator="xml" expression="$ctx:responsePayload"/>
         </args>
     </payloadFactory>
+    <respond/>
 </sequence>

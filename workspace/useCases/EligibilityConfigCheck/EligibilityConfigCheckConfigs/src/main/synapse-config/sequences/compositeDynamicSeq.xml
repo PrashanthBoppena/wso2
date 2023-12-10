@@ -25,7 +25,20 @@
 }</format>
                 <args/>
             </payloadFactory>
-            <sequence key="Dynamic_Query_Call_Seq"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="http://172.16.110.118:8285/DynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
         </case>
         <case regex=".*+"/>
         <case regex="QUERY'"/>
