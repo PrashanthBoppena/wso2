@@ -49,7 +49,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			
 			
 			String apiRegistryConfigs = (String)messageContext.getProperty("apiregistryConfigPath");
-			String inputPayload = (String) messageContext.getProperty("requestPayload");
+			String inputPayload = (String) messageContext.getProperty("dynamicQueryMediatorRequestPayload");
 
 			Properties properties = PropertiesUtil.propertiesFileRead(apiRegistryConfigs);
 

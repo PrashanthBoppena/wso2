@@ -38,15 +38,18 @@
                 </args>
             </payloadFactory>
             <log level="custom">
-                <property expression="//scenario" name="scenario"/>
+                <property expression="//sub_api_id" name="sub_api_id"/>
             </log>
             <script language="js"><![CDATA[// Get the JSON object from the message context
+		var log = mc.getServiceLog();
         var jsonPayload = mc.getPayloadJSON();
-
+	
         var count = 0;
 
         for (var key in jsonPayload) {
-            if (jsonPayload[key] === "Y") {
+			
+            if (jsonPayload[key] ==="1") {
+				
                 count++;
             }
         }

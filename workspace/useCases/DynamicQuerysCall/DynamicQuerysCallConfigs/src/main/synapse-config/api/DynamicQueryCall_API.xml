@@ -2,6 +2,7 @@
 <api context="/DynamicQueryCall" name="DynamicQueryCall_API" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST">
         <inSequence>
+            <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
             <filter regex="false" source="boolean($trp:parentId)">
                 <then>
                     <log description="parentId null" level="custom">

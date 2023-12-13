@@ -8,7 +8,7 @@
     "queryName": "CUS_OnBoarding",&#xd;
     "parameters": {&#xd;
 &#xd;
-        "API_Name":"CUS_OnBoarding"&#xd;
+        "sub_api_id":"CUS_OnBoarding"&#xd;
     }&#xd;
 }</format>
                 <args/>
@@ -47,13 +47,15 @@ for (var i = 0; i < responseArray.length; i++) {
         mc.setProperty("EnableFlagCount", count);]]></script>
             <log description="log the Enableflag Count" level="custom">
                 <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
+                <property expression="json-eval($.length())" name="Countjson-eval($.length())==>"/>
             </log>
-            <property name="X" scope="default" type="STRING" value="1"/>
-            <iterate expression="//jsonElement" id="DynamicMediationSeq_Itr1" sequential="true">
+            <iterate expression="//jsonElement" id="Agg1" sequential="true">
                 <target>
                     <sequence>
+                        <property expression="get-property('csId')" name="csId" scope="default" type="STRING"/>
                         <log level="custom">
                             <property expression="get-property('csId')" name="csId===>"/>
+                            <property expression="//ID" name="ID from table======>"/>
                         </log>
                         <propertyGroup>
                             <property expression="//API_Name" name="API_Name" scope="default" type="STRING"/>
@@ -68,6 +70,16 @@ for (var i = 0; i < responseArray.length; i++) {
                         </propertyGroup>
                         <filter regex="1" source="$ctx:Enable_Flag">
                             <then>
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+"SystemName" : "EB",&#xd;
+"template" :"requestPayload",&#xd;
+"src_apiName" : "UOL_API",&#xd;
+"src_request_Id" : "src_id"&#xd;
+&#xd;
+}</format>
+                                    <args/>
+                                </payloadFactory>
                                 <switch source="$ctx:System_Name">
                                     <case regex="REST">
                                         <sequence key="REST_API_Call_Seq"/>
@@ -79,25 +91,38 @@ for (var i = 0; i < responseArray.length; i++) {
                                                 <arg evaluator="xml" expression="$ctx:API_Request"/>
                                             </args>
                                         </payloadFactory>
-                                        <sequence key="gov:custom/sequences/DynamicEBSequence.xml"/>
-                                        <property expression="get-property('X')+1" name="X" scope="default" type="STRING"/>
-                                        <switch source="$ctx:Process_Name">
-                                            <case regex="Customer_Creation">
-                                                <log level="custom">
-                                                    <property expression="json-eval($.customerCreateResponse.customerNew.csId)" name="in switch===>"/>
-                                                    <property expression="get-property('X')+1" name="Increase X value==>"/>
-                                                </log>
-                                                <property expression="json-eval($.customerCreateResponse.customerNew.csId)" name="csId" scope="default" type="INTEGER"/>
-                                                <property expression="get-property('X')+get-property('csId')" name="X" scope="default" type="STRING"/>
-                                                <log level="custom">
-                                                    <property expression="get-property('X')+get-property('csId')" name="csId"/>
-                                                </log>
-                                            </case>
-                                            <default/>
-                                        </switch>
+                                        <sequence key="EB_SOAP_Call_Seq"/>
                                         <log level="custom">
-                                            <property expression="get-property('csId')" name="new cs Id@@@"/>
+                                            <property expression="json-eval($)" name="eb response data==>"/>
                                         </log>
+                                    </case>
+                                    <case regex="QUERY">
+                                        <payloadFactory media-type="json">
+                                            <format>{&#xd;
+    "queryName": "$1",&#xd;
+    "parameters": {&#xd;
+        "csId":518531&#xd;
+&#xd;
+    }&#xd;
+}</format>
+                                            <args>
+                                                <arg evaluator="xml" expression="get-property('Endpoint')"/>
+                                            </args>
+                                        </payloadFactory>
+                                        <call>
+                                            <endpoint>
+                                                <http method="post" uri-template="$FILE:dynamicQueryCall">
+                                                    <suspendOnFailure>
+                                                        <initialDuration>-1</initialDuration>
+                                                        <progressionFactor>-1</progressionFactor>
+                                                        <maximumDuration>0</maximumDuration>
+                                                    </suspendOnFailure>
+                                                    <markForSuspension>
+                                                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                                    </markForSuspension>
+                                                </http>
+                                            </endpoint>
+                                        </call>
                                     </case>
                                     <default/>
                                 </switch>
@@ -111,14 +136,7 @@ for (var i = 0; i < responseArray.length; i++) {
                     </sequence>
                 </target>
             </iterate>
-            <aggregate id="DynamicMediationSeq_Itr1">
-                <completeCondition>
-                    <messageCount max="{get-property('EnableFlagCount')}" min="0"/>
-                </completeCondition>
-                <onComplete aggregateElementType="root" expression="json-eval($)">
-                    <respond/>
-                </onComplete>
-            </aggregate>
+            <sequence key="AggregateResponsesSeq"/>
         </inSequence>
         <outSequence/>
     </resource>

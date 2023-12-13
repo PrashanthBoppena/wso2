@@ -10,13 +10,23 @@ import org.apache.synapse.mediators.AbstractMediator;
 
 public class SystemResponseUpdateLog extends AbstractMediator {
 	private String apiregistryConfigPath;
-	private String reqId;
+	private String parentId;
+	private String childId;
 	private String processId;
-	private String process;
+
 	private String responsePayload;
 	private String status;
 	
 	// setters and getters for private class variables
+	public String getChildId() {
+		return childId;
+	}
+
+	public void setChildId(String childId) {
+		this.childId = childId;
+	}	
+	
+	
 	public String getApiregistryConfigPath() {
 		return apiregistryConfigPath;
 	}
@@ -25,12 +35,14 @@ public class SystemResponseUpdateLog extends AbstractMediator {
 		this.apiregistryConfigPath = apiregistryConfigPath;
 	}
 	
-	public String getReqId() {
-		return reqId;
+
+
+	public String getParentId() {
+		return parentId;
 	}
 
-	public void setReqId(String reqId) {
-		this.reqId = reqId;
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getProcessId() {
@@ -41,13 +53,7 @@ public class SystemResponseUpdateLog extends AbstractMediator {
 		this.processId = processId;
 	}
 
-	public String getProcess() {
-		return process;
-	}
 
-	public void setProcess(String process) {
-		this.process = process;
-	}
 
 	public String getResponsePayload() {
 		return responsePayload;
@@ -77,13 +83,13 @@ public class SystemResponseUpdateLog extends AbstractMediator {
             if(con!=null) {
                 System.out.println("update log conn obj====> "+con);
                 
-                String query = "update bscsreqloghandler set ResponsePayload=?, Status=? where ProcessId=?";
+                String query = "update bscsreqloghandler set ResponsePayload=?, Status=? where ChildId=? and ParentId=?";
                                 
                 pstmt = con.prepareStatement(query);
                 pstmt.setString(1, responsePayload);
-                
                 pstmt.setString(2, status);
-                pstmt.setString(3, processId);
+                pstmt.setString(3, childId);
+                pstmt.setString(4, parentId);
 
                 int count = pstmt.executeUpdate();
                 System.out.println("logs updated==> "+count);            	

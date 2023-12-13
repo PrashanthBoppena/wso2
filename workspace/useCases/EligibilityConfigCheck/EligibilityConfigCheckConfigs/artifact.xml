@@ -8,9 +8,6 @@
     <artifact name="EligibilityConfigCheck_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/EligibilityConfigCheck_API_metadata.yaml</file>
     </artifact>
-    <artifact name="compositeDynamicSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/sequences/compositeDynamicSeq.xml</file>
-    </artifact>
     <artifact name="REST_API_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/REST_API_Call_Seq.xml</file>
     </artifact>
@@ -28,5 +25,11 @@
     </artifact>
     <artifact name="DynamicMediationSequence_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/DynamicMediationSequence_metadata.yaml</file>
+    </artifact>
+    <artifact name="AggregateResponsesSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/AggregateResponsesSeq.xml</file>
+    </artifact>
+    <artifact name="EligibilityCheckSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EligibilityCheckSequence.xml</file>
     </artifact>
 </artifacts>

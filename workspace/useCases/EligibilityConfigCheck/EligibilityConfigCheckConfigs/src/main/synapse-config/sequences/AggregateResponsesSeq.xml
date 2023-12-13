@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="AggregateResponsesSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <aggregate id="Agg1">
+        <completeCondition>
+            <messageCount max="{get-property('EnableFlagCount')}" min="0"/>
+        </completeCondition>
+        <onComplete aggregateElementType="root" expression="json-eval($)">
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

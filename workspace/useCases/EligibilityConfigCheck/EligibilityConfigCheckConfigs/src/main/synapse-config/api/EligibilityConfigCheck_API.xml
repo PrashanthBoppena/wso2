@@ -33,77 +33,42 @@
                     <arg evaluator="json" expression="$.response"/>
                 </args>
             </payloadFactory>
-            <script description="countEnableFlags" language="js"><![CDATA[var responseArray  = mc.getPayloadJSON();
-
-		var count = 0;
-
-for (var i = 0; i < responseArray.length; i++) {
-    if (responseArray[i].Enable_Flag === "1") {
-        count++;
-    }
-}
-
-        
-        mc.setProperty("EnableFlagCount", count);]]></script>
+            <property description="count enable flags" expression="json-eval($.length())" name="EnableFlagCount" scope="default" type="STRING"/>
             <log description="log the Enableflag Count" level="custom">
                 <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
             </log>
-            <iterate description="IterateonEachObject" expression="//jsonElement" id="eligibility_check_2" sequential="true">
+            <iterate description="IterateonEachObject" expression="json-eval($)" id="eligibility_check_2" sequential="true">
                 <target>
                     <sequence>
-                        <filter description="check Flag status and call the service" regex="1" source="//Enable_Flag">
-                            <then>
-                                <propertyGroup description="db configs">
-                                    <property expression="//Process_ID" name="processId" scope="default" type="STRING"/>
-                                    <property expression="//Process_Name" name="process" scope="default" type="STRING"/>
-                                    <property expression="//Endpoint" name="endpoint" scope="default" type="STRING"/>
-                                    <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
-                                    <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
-                                </propertyGroup>
-                                <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
-                                <payloadFactory media-type="xml">
-                                    <format>
-                                        <data xmlns="">$1</data>
-                                    </format>
-                                    <args>
-                                        <arg evaluator="json" expression="$ctx:requestPayload.requestPayload"/>
-                                    </args>
-                                </payloadFactory>
-                                <payloadFactory media-type="json">
-                                    <format>{&#xd;
-"request":"$1"&#xd;
-}</format>
-                                    <args>
-                                        <arg evaluator="xml" expression="$body//*[local-name()=$ctx:process]/*[local-name()='request']"/>
-                                    </args>
-                                </payloadFactory>
-                                <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
-                                    <property expression="$ctx:process" name="process"/>
-                                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
-                                    <property expression="json-eval($)" name="requestPayload"/>
-                                    <property expression="fn:concat(get-property('file','hostAdd'),$ctx:endpoint)" name="apiName"/>
-                                    <property expression="$ctx:parentId" name="parentId"/>
-                                    <property expression="$ctx:processId" name="processId"/>
-                                    <property expression="$ctx:childId" name="childId"/>
-                                </class>
-                                <sequence key="REST_API_Call_Seq"/>
-                                <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
-                                    <property expression="$ctx:parentId" name="parentId"/>
-                                    <property expression="$ctx:processId" name="processId"/>
-                                    <property expression="json-eval($)" name="responsePayload"/>
-                                    <property expression="$axis2:HTTP_SC" name="status"/>
-                                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
-                                    <property expression="$ctx:childId" name="childId"/>
-                                </class>
-                            </then>
-                            <else/>
-                        </filter>
+                        <propertyGroup description="db configs">
+                            <property expression="//Process_ID" name="processId" scope="default" type="STRING"/>
+                            <property expression="//Process_Name" name="process" scope="default" type="STRING"/>
+                            <property expression="//Endpoint" name="endpoint" scope="default" type="STRING"/>
+                            <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                            <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                        <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                            <property expression="$ctx:process" name="process"/>
+                            <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                            <property expression="json-eval($)" name="requestPayload"/>
+                            <property expression="fn:concat(get-property('file','hostAdd'),$ctx:endpoint)" name="apiName"/>
+                            <property expression="$ctx:parentId" name="parentId"/>
+                            <property expression="$ctx:processId" name="processId"/>
+                            <property expression="$ctx:childId" name="childId"/>
+                        </class>
+                        <sequence key="REST_API_Call_Seq"/>
+                        <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                            <property expression="$ctx:parentId" name="parentId"/>
+                            <property expression="$ctx:processId" name="processId"/>
+                            <property expression="json-eval($)" name="responsePayload"/>
+                            <property expression="$axis2:HTTP_SC" name="status"/>
+                            <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                            <property expression="$ctx:childId" name="childId"/>
+                        </class>
                     </sequence>
                 </target>
             </iterate>
-            <log level="custom">
-                <property expression="json-eval($)" name="@@@@@@@@@@@@@@@@@@@@@@==>"/>
-            </log>
             <payloadFactory media-type="json">
                 <format>{&#xd;
 "$1":$2&#xd;

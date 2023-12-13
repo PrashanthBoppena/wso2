@@ -14,7 +14,8 @@ public class SystemRequestNewLog extends AbstractMediator  {
 	
     // Private class variables
 	private String apiregistryConfigPath;
-    private String reqId;
+    private String parentId;
+    private String childId;
     private String processId;
     private String process;
     private String apiName;
@@ -25,9 +26,7 @@ public class SystemRequestNewLog extends AbstractMediator  {
     // Setters for private class variables
     
     
-    public void setReqId(String reqId) {
-        this.reqId = reqId;
-    }
+
 
 	public void setApiregistryConfigPath(String apiregistryConfigPath) {
 		this.apiregistryConfigPath = apiregistryConfigPath;
@@ -49,18 +48,31 @@ public class SystemRequestNewLog extends AbstractMediator  {
         this.requestPayload = requestPayload;
     }
 
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
 
 
+	public void setChildId(String childId) {
+		this.childId = childId;
+	}
+
+	// Getters for private class variables
 
 
-    // Getters for private class variables
-    public String getApiregistryConfigPath() {
+    public String getChildId() {
+		return childId;
+	}
+    
+    public String getParentId() {
+		return parentId;
+	}
+
+
+	public String getApiregistryConfigPath() {
  		return apiregistryConfigPath;
  	}
     
-    public String getReqId() {
-        return reqId;
-    }
 
     public String getProcessId() {
         return processId;
@@ -94,13 +106,14 @@ public class SystemRequestNewLog extends AbstractMediator  {
             if (con != null) {
                 System.out.println("New log connection object: " + con);
 
-                String query = "INSERT INTO bscsreqloghandler (ReqId, ProcessId, Process, Api, RequestPayload, Status, requested_on) VALUES (?, ?, ?, ?, ?, 'Inprocess', NOW())";
+                String query = "INSERT INTO bscsreqloghandler (parentId,ChildId, ProcessId, Process, Api, RequestPayload, Status, requested_on) VALUES (?, ?, ?, ?, ?, ?, 'Inprocess', NOW())";
                 pstmt = con.prepareStatement(query);
-                pstmt.setString(1, reqId);
-                pstmt.setString(2, processId);
-                pstmt.setString(3, process);
-                pstmt.setString(4, apiName);
-                pstmt.setString(5, requestPayload);
+                pstmt.setString(1, parentId);
+                pstmt.setString(2, childId);
+                pstmt.setString(3, processId);
+                pstmt.setString(4, process);
+                pstmt.setString(5, apiName);
+                pstmt.setString(6, requestPayload);
 
                 int count = pstmt.executeUpdate();
                 System.out.println("New Log count=> "+count);

@@ -103,11 +103,11 @@
                 <outputConnector>
                   <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.8/@inputConnector"/>
                 </outputConnector>
-                <properties propertyName="scenario" propertyValueType="EXPRESSION" propertyValue="">
-                  <propertyExpression propertyValue="//scenario" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <properties propertyName="sub_api_id" propertyValueType="EXPRESSION" propertyValue="">
+                  <propertyExpression propertyValue="//sub_api_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                 </properties>
               </children>
-              <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="// Get the JSON object from the message context&#xA;        var jsonPayload = mc.getPayloadJSON();&#xA;&#xA;        var count = 0;&#xA;&#xA;        for (var key in jsonPayload) {&#xA;            if (jsonPayload[key] === &quot;Y&quot;) {&#xA;                count++;&#xA;            }&#xA;        }&#xA;&#xA;        // Set the count in a property for future use&#xA;        mc.setProperty(&quot;CountWithY&quot;, count);">
+              <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="// Get the JSON object from the message context&#xA;&#x9;&#x9;var log = mc.getServiceLog();&#xA;        var jsonPayload = mc.getPayloadJSON();&#xA;&#x9;&#xA;        var count = 0;&#xA;&#xA;        for (var key in jsonPayload) {&#xA;&#x9;&#x9;&#x9;&#xA;            if (jsonPayload[key] ===&quot;1&quot;) {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;                count++;&#xA;            }&#xA;        }&#xA;&#xA;        // Set the count in a property for future use&#xA;        mc.setProperty(&quot;CountWithY&quot;, count);">
                 <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                 <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
                 <outputConnector>
