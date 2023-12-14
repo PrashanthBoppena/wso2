@@ -25,7 +25,7 @@
           <properties valueType="EXPRESSION" newPropertyName="context">
             <inputConnector/>
             <outputConnector/>
-            <valueExpression propertyValue="$ctx:endpoint" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            <valueExpression propertyValue="$ctx:Endpoint" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
           </properties>
         </children>
         <children xsi:type="esb:HeaderMediator" description="constructAPI" valueType="EXPRESSION">

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Dynamic Query after the query prepared in format::"/>
+		<item key="selection" value="responsePayload"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="Dynamic Query after the query prepared in format::"/>
+			<item value="ResponsePayload"/>
+			<item value="bscsreqloghandler.ResponsePayload"/>
 			<item value="API_Name"/>
+			<item value="setParentId()"/>
+			<item value="Dynamic Query after the query prepared in format::"/>
 			<item value="scenario"/>
 			<item value="QueryConfig"/>
 			<item value="Target DB Query resultsetJSONArray"/>
@@ -20,11 +23,9 @@
 			<item value="connectToDatabase"/>
 			<item value="process"/>
 			<item value="&quot;process&quot;"/>
-			<item value="responsePayload"/>
-			<item value="Exception occured during the db"/>
-			<item value="logger"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sub_api_id"/>
 			<item value="process"/>
 			<item value=""/>
 			<item value="log"/>

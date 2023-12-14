@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_-SpMcJjcEe6LdLKgROChyQ" type="Esb" name="AggregateResponsesSeq" measurementUnit="Pixel">
-  <children xmi:type="notation:Node" xmi:id="_-UJoUJjcEe6LdLKgROChyQ" type="2001">
-    <children xmi:type="notation:DecorationNode" xmi:id="_-UJoVZjcEe6LdLKgROChyQ" type="7001">
-      <children xmi:type="notation:Node" xmi:id="_-YxpoJjcEe6LdLKgROChyQ" type="3614">
-        <children xmi:type="notation:Node" xmi:id="_-YyQsJjcEe6LdLKgROChyQ" type="3615">
-          <children xmi:type="notation:DecorationNode" xmi:id="_-YyQtZjcEe6LdLKgROChyQ" type="7035">
-            <children xmi:type="notation:Node" xmi:id="_-Y3wQJjcEe6LdLKgROChyQ" type="3525">
-              <children xmi:type="notation:DecorationNode" xmi:id="_-Y3wRZjcEe6LdLKgROChyQ" type="5149"/>
-              <children xmi:type="notation:Node" xmi:id="_-Y7aoJjcEe6LdLKgROChyQ" type="3112">
-                <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Y7aoZjcEe6LdLKgROChyQ"/>
-                <styles xmi:type="notation:FontStyle" xmi:id="_-Y7aopjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                <styles xmi:type="notation:LineStyle" xmi:id="_-Y7ao5jcEe6LdLKgROChyQ"/>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_ng94MJpMEe69TIjIAW1bgA" type="Esb" name="AggregateResponsesSeq" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_nh3QEJpMEe69TIjIAW1bgA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_nh3QFZpMEe69TIjIAW1bgA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_nmVgYJpMEe69TIjIAW1bgA" type="3614">
+        <children xmi:type="notation:Node" xmi:id="_nmX8oJpMEe69TIjIAW1bgA" type="3615">
+          <children xmi:type="notation:DecorationNode" xmi:id="_nmYjsJpMEe69TIjIAW1bgA" type="7035">
+            <children xmi:type="notation:Node" xmi:id="_nmyzYJpMEe69TIjIAW1bgA" type="3525">
+              <children xmi:type="notation:DecorationNode" xmi:id="_nmzacJpMEe69TIjIAW1bgA" type="5149"/>
+              <children xmi:type="notation:Node" xmi:id="_nnf-AJpMEe69TIjIAW1bgA" type="3112">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_nnf-AZpMEe69TIjIAW1bgA"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_nnf-AppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_nnf-A5pMEe69TIjIAW1bgA"/>
                 <element xmi:type="esb:AggregateMediatorInputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Y7apJjcEe6LdLKgROChyQ" x="-6" y="-5"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnf-BJpMEe69TIjIAW1bgA" x="-6" y="-5"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_-Y7apZjcEe6LdLKgROChyQ" type="3113">
-                <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Y7appjcEe6LdLKgROChyQ"/>
-                <styles xmi:type="notation:FontStyle" xmi:id="_-Y7ap5jcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                <styles xmi:type="notation:LineStyle" xmi:id="_-Y7aqJjcEe6LdLKgROChyQ"/>
+              <children xmi:type="notation:Node" xmi:id="_nnglEJpMEe69TIjIAW1bgA" type="3113">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_nnglEZpMEe69TIjIAW1bgA"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_nnglEppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_nnglE5pMEe69TIjIAW1bgA"/>
                 <element xmi:type="esb:AggregateMediatorOutputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Y7aqZjcEe6LdLKgROChyQ" x="-11" y="-9"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnglFJpMEe69TIjIAW1bgA" x="-11" y="-9"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_-Y7aqpjcEe6LdLKgROChyQ" type="3132">
-                <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Y7aq5jcEe6LdLKgROChyQ"/>
-                <styles xmi:type="notation:FontStyle" xmi:id="_-Y7arJjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                <styles xmi:type="notation:LineStyle" xmi:id="_-Y7arZjcEe6LdLKgROChyQ"/>
+              <children xmi:type="notation:Node" xmi:id="_nnhMIJpMEe69TIjIAW1bgA" type="3132">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_nnhMIZpMEe69TIjIAW1bgA"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_nnhMIppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_nnhMI5pMEe69TIjIAW1bgA"/>
                 <element xmi:type="esb:AggregateMediatorOnCompleteOutputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@onCompleteOutputConnector"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Y7arpjcEe6LdLKgROChyQ" x="80" y="-9"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnhMJJpMEe69TIjIAW1bgA" x="80" y="-9"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_-Y7ar5jcEe6LdLKgROChyQ" type="3526">
-                <children xmi:type="notation:DecorationNode" xmi:id="_-Y7atJjcEe6LdLKgROChyQ" type="7016">
-                  <children xmi:type="notation:Node" xmi:id="_-ZhQgJjcEe6LdLKgROChyQ" type="3739">
-                    <children xmi:type="notation:DecorationNode" xmi:id="_-ZhQhZjcEe6LdLKgROChyQ" type="5209"/>
-                    <children xmi:type="notation:Node" xmi:id="_-ZkT0JjcEe6LdLKgROChyQ" type="3740">
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_-ZkT0ZjcEe6LdLKgROChyQ"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="_-ZkT0pjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                      <styles xmi:type="notation:LineStyle" xmi:id="_-ZkT05jcEe6LdLKgROChyQ"/>
+              <children xmi:type="notation:Node" xmi:id="_nnhMJZpMEe69TIjIAW1bgA" type="3526">
+                <children xmi:type="notation:DecorationNode" xmi:id="_nnhMKppMEe69TIjIAW1bgA" type="7016">
+                  <children xmi:type="notation:Node" xmi:id="_npbQoJpMEe69TIjIAW1bgA" type="3739">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_npb3sJpMEe69TIjIAW1bgA" type="5209"/>
+                    <children xmi:type="notation:Node" xmi:id="_npgJIJpMEe69TIjIAW1bgA" type="3740">
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_npgJIZpMEe69TIjIAW1bgA"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_npgJIppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_npgJI5pMEe69TIjIAW1bgA"/>
                       <element xmi:type="esb:RespondMediatorInputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-ZkT1JjcEe6LdLKgROChyQ" x="-6" y="-5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_npgJJJpMEe69TIjIAW1bgA" x="-6" y="-5"/>
                     </children>
-                    <children xmi:type="notation:Node" xmi:id="_-ZkT1ZjcEe6LdLKgROChyQ" type="3741">
-                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_-ZkT1pjcEe6LdLKgROChyQ"/>
-                      <styles xmi:type="notation:FontStyle" xmi:id="_-ZkT15jcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                      <styles xmi:type="notation:LineStyle" xmi:id="_-ZkT2JjcEe6LdLKgROChyQ"/>
+                    <children xmi:type="notation:Node" xmi:id="_npgwMJpMEe69TIjIAW1bgA" type="3741">
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_npgwMZpMEe69TIjIAW1bgA"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_npgwMppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_npgwM5pMEe69TIjIAW1bgA"/>
                       <element xmi:type="esb:RespondMediatorOutputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@mediatorFlow/@children.0/@outputConnector"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-ZkT2ZjcEe6LdLKgROChyQ" x="64" y="-9"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_npgwNJpMEe69TIjIAW1bgA" x="64" y="-9"/>
                     </children>
-                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_-ZhQgZjcEe6LdLKgROChyQ"/>
-                    <styles xmi:type="notation:FontStyle" xmi:id="_-ZhQgpjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                    <styles xmi:type="notation:LineStyle" xmi:id="_-ZhQg5jcEe6LdLKgROChyQ"/>
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_npbQoZpMEe69TIjIAW1bgA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_npbQoppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_npbQo5pMEe69TIjIAW1bgA"/>
                     <element xmi:type="esb:RespondMediator" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@mediatorFlow/@children.0"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-ZhQhJjcEe6LdLKgROChyQ" x="25" y="10" width="84" height="115"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_npbQpJpMEe69TIjIAW1bgA" x="25" y="10" width="84" height="115"/>
                   </children>
                 </children>
-                <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Y7asJjcEe6LdLKgROChyQ"/>
-                <styles xmi:type="notation:FontStyle" xmi:id="_-Y7asZjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-                <styles xmi:type="notation:LineStyle" xmi:id="_-Y7aspjcEe6LdLKgROChyQ"/>
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_nnhMJppMEe69TIjIAW1bgA"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_nnhMJ5pMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_nnhMKJpMEe69TIjIAW1bgA"/>
                 <element xmi:type="esb:MediatorFlow" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@mediatorFlow"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Y7as5jcEe6LdLKgROChyQ"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnhMKZpMEe69TIjIAW1bgA"/>
               </children>
-              <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Y3wQZjcEe6LdLKgROChyQ"/>
-              <styles xmi:type="notation:FontStyle" xmi:id="_-Y3wQpjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-              <styles xmi:type="notation:LineStyle" xmi:id="_-Y3wQ5jcEe6LdLKgROChyQ"/>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmyzYZpMEe69TIjIAW1bgA"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_nmyzYppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_nmyzY5pMEe69TIjIAW1bgA"/>
               <element xmi:type="esb:AggregateMediator" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Y3wRJjcEe6LdLKgROChyQ" x="25" y="146" width="170" height="130"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmyzZJpMEe69TIjIAW1bgA" x="25" y="146" width="170" height="130"/>
             </children>
-            <styles xmi:type="notation:TitleStyle" xmi:id="_-YyQtpjcEe6LdLKgROChyQ" showTitle="true"/>
+            <styles xmi:type="notation:TitleStyle" xmi:id="_nmYjsZpMEe69TIjIAW1bgA" showTitle="true"/>
           </children>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_-YyQsZjcEe6LdLKgROChyQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_-YyQspjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-          <styles xmi:type="notation:LineStyle" xmi:id="_-YyQs5jcEe6LdLKgROChyQ"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmX8oZpMEe69TIjIAW1bgA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nmX8oppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nmX8o5pMEe69TIjIAW1bgA"/>
           <element xmi:type="esb:MediatorFlow" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-YyQtJjcEe6LdLKgROChyQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmX8pJpMEe69TIjIAW1bgA"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_-YyQt5jcEe6LdLKgROChyQ" type="3616">
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_-YyQuJjcEe6LdLKgROChyQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_-YyQuZjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-          <styles xmi:type="notation:LineStyle" xmi:id="_-YyQupjcEe6LdLKgROChyQ"/>
+        <children xmi:type="notation:Node" xmi:id="_nmYjsppMEe69TIjIAW1bgA" type="3616">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmYjs5pMEe69TIjIAW1bgA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nmYjtJpMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nmYjtZpMEe69TIjIAW1bgA"/>
           <element xmi:type="esb:SequencesInputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@inputConnector"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-YyQu5jcEe6LdLKgROChyQ" x="-11" y="-9"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmYjtppMEe69TIjIAW1bgA" x="-11" y="-9"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_-Yy3wJjcEe6LdLKgROChyQ" type="3617">
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_-Yy3wZjcEe6LdLKgROChyQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_-Yy3wpjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-          <styles xmi:type="notation:LineStyle" xmi:id="_-Yy3w5jcEe6LdLKgROChyQ"/>
+        <children xmi:type="notation:Node" xmi:id="_nmZKwJpMEe69TIjIAW1bgA" type="3617">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmZKwZpMEe69TIjIAW1bgA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nmZKwppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nmZKw5pMEe69TIjIAW1bgA"/>
           <element xmi:type="esb:SequencesOutputConnector" href="AggregateResponsesSeq.esb#//@server/@children.0/@outputConnector"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Yy3xJjcEe6LdLKgROChyQ" x="-11" y="-9"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmZKxJpMEe69TIjIAW1bgA" x="-11" y="-9"/>
         </children>
-        <styles xmi:type="notation:DescriptionStyle" xmi:id="_-YxpoZjcEe6LdLKgROChyQ"/>
-        <styles xmi:type="notation:FontStyle" xmi:id="_-YxpopjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-        <styles xmi:type="notation:LineStyle" xmi:id="_-Yxpo5jcEe6LdLKgROChyQ"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_nmVgYZpMEe69TIjIAW1bgA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_nmVgYppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_nmVgY5pMEe69TIjIAW1bgA"/>
         <element xmi:type="esb:Sequences" href="AggregateResponsesSeq.esb#//@server/@children.0"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-YxppJjcEe6LdLKgROChyQ" width="195" height="125"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nmVgZJpMEe69TIjIAW1bgA" width="195" height="125"/>
       </children>
     </children>
-    <styles xmi:type="notation:DescriptionStyle" xmi:id="_-UJoUZjcEe6LdLKgROChyQ"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_-UJoUpjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_-UJoU5jcEe6LdLKgROChyQ"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_nh3QEZpMEe69TIjIAW1bgA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_nh3QEppMEe69TIjIAW1bgA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_nh3QE5pMEe69TIjIAW1bgA"/>
     <element xmi:type="esb:EsbServer" href="AggregateResponsesSeq.esb#//@server"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-UJoVJjcEe6LdLKgROChyQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nh3QFJpMEe69TIjIAW1bgA"/>
   </children>
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_-SpMcZjcEe6LdLKgROChyQ"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_ng94MZpMEe69TIjIAW1bgA"/>
   <element xmi:type="esb:EsbDiagram" href="AggregateResponsesSeq.esb#/"/>
-  <edges xmi:type="notation:Connector" xmi:id="_-acdkJjcEe6LdLKgROChyQ" type="4001" source="_-Y7aqpjcEe6LdLKgROChyQ" target="_-ZkT0JjcEe6LdLKgROChyQ" roundedBendpointsRadius="5" routing="Rectilinear">
-    <styles xmi:type="notation:FontStyle" xmi:id="_-acdkZjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
+  <edges xmi:type="notation:Connector" xmi:id="_nq3bEJpMEe69TIjIAW1bgA" type="4001" source="_nnhMIJpMEe69TIjIAW1bgA" target="_npgJIJpMEe69TIjIAW1bgA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nq3bEZpMEe69TIjIAW1bgA" fontName="Segoe UI"/>
     <element xmi:type="esb:EsbLink" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@onCompleteOutputConnector/@outgoingLink"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-acdkpjcEe6LdLKgROChyQ" points="[11, 7, -5, -4]$[10, 6, -6, -5]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nq3bEppMEe69TIjIAW1bgA" points="[11, 7, -5, -4]$[10, 6, -6, -5]"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_-agvAJjcEe6LdLKgROChyQ" type="4001" source="_-Yy3wJjcEe6LdLKgROChyQ" target="_-Y7aoJjcEe6LdLKgROChyQ" roundedBendpointsRadius="5" routing="Rectilinear">
-    <styles xmi:type="notation:FontStyle" xmi:id="_-agvAZjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
+  <edges xmi:type="notation:Connector" xmi:id="_nq9hsJpMEe69TIjIAW1bgA" type="4001" source="_nmZKwJpMEe69TIjIAW1bgA" target="_nnf-AJpMEe69TIjIAW1bgA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nq9hsZpMEe69TIjIAW1bgA" fontName="Segoe UI"/>
     <element xmi:type="esb:EsbLink" href="AggregateResponsesSeq.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-agvApjcEe6LdLKgROChyQ" points="[6, 9, 0, -1]$[0, 5, -6, -5]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nq9hsppMEe69TIjIAW1bgA" points="[6, 9, 0, -1]$[0, 5, -6, -5]"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_-ajLQJjcEe6LdLKgROChyQ" type="4001" source="_-Y7apZjcEe6LdLKgROChyQ" target="_-YyQt5jcEe6LdLKgROChyQ" roundedBendpointsRadius="5" routing="Rectilinear">
-    <styles xmi:type="notation:FontStyle" xmi:id="_-ajLQZjcEe6LdLKgROChyQ" fontName="Segoe UI"/>
+  <edges xmi:type="notation:Connector" xmi:id="_nrEPYJpMEe69TIjIAW1bgA" type="4001" source="_nnglEJpMEe69TIjIAW1bgA" target="_nmYjsppMEe69TIjIAW1bgA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nrEPYZpMEe69TIjIAW1bgA" fontName="Segoe UI"/>
     <element xmi:type="esb:EsbLink" href="AggregateResponsesSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-ajLQpjcEe6LdLKgROChyQ" points="[-1, -9, 0, 1]$[0, -1, 1, 9]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nrEPYppMEe69TIjIAW1bgA" points="[-1, -9, 0, 1]$[0, -1, 1, 9]"/>
   </edges>
 </notation:Diagram>

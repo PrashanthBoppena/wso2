@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/dynamic_mediation_seq" name="DynamicMediation_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST GET">
+        <inSequence>
+            <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+    "queryName": "CUS_OnBoarding",&#xd;
+    "parameters": {&#xd;
+&#xd;
+        "sub_api_id":"CUS_OnBoarding"&#xd;
+    }&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <call description="DynamicQueryCall">
+                <endpoint>
+                    <http method="post" uri-template="$FILE:dynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.response"/>
+                </args>
+            </payloadFactory>
+            <property expression="json-eval($.length())" name="EnableFlagCount" scope="default" type="STRING"/>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
+            </log>
+            <iterate expression="//jsonElement" id="Agg1" sequential="true">
+                <target>
+                    <sequence>
+                        <log level="custom">
+                            <property expression="$ctx:loopVar" name="loopVar==>"/>
+                        </log>
+                        <propertyGroup>
+                            <property expression="//sub_api_id" name="sub_api_id" scope="default" type="STRING"/>
+                            <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                            <property expression="//Process_ID" name="Process_ID" scope="default" type="STRING"/>
+                            <property expression="//Process_Name" name="Process_Name" scope="default" type="STRING"/>
+                            <property expression="//Enable_Flag" name="Enable_Flag" scope="default" type="STRING"/>
+                            <property expression="//Endpoint" name="Endpoint" scope="default" type="STRING"/>
+                            <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                            <property expression="//Request_Type" name="Request_Type" scope="default" type="STRING"/>
+                            <property expression="//Req_Payload" name="req_template_ID" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <payloadFactory media-type="json">
+                            <format>{&#xd;
+"SystemName" : "EB",&#xd;
+"template" :"requestPayload",&#xd;
+"src_apiName" : "UOL_API",&#xd;
+"src_request_Id" : "src_id"&#xd;
+&#xd;
+}</format>
+                            <args/>
+                        </payloadFactory>
+                        <property name="loopVar" scope="default" type="STRING" value="007"/>
+                        <switch source="$ctx:System_Name">
+                            <case regex="REST">
+                                <property name="loopVar" scope="default" type="STRING" value="007"/>
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+    "queryName": "eligibilityCheck",&#xd;
+    "parameters": {&#xd;
+        "sub_api_id":"CUS_Onboarding"&#xd;
+    }&#xd;
+}</format>
+                                    <args/>
+                                </payloadFactory>
+                                <call>
+                                    <endpoint>
+                                        <http method="post" uri-template="http://localhost:8285/check-eligibility">
+                                            <suspendOnFailure>
+                                                <initialDuration>-1</initialDuration>
+                                                <progressionFactor>-1</progressionFactor>
+                                                <maximumDuration>0</maximumDuration>
+                                            </suspendOnFailure>
+                                            <markForSuspension>
+                                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                            </markForSuspension>
+                                        </http>
+                                    </endpoint>
+                                </call>
+                            </case>
+                            <case regex="EB">
+                                <payloadFactory media-type="json">
+                                    <format>$1</format>
+                                    <args>
+                                        <arg evaluator="xml" expression="$ctx:API_Request"/>
+                                    </args>
+                                </payloadFactory>
+                                <sequence key="EB_SOAP_Call_Seq"/>
+                                <log level="custom">
+                                    <property expression="json-eval($)" name="eb response data==>"/>
+                                </log>
+                            </case>
+                            <case regex="QUERY">
+                                <property name="loopVar" scope="default" type="STRING" value="007"/>
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+    "queryName": "$1",&#xd;
+    "parameters": {&#xd;
+        "csId":518531&#xd;
+&#xd;
+    }&#xd;
+}</format>
+                                    <args>
+                                        <arg evaluator="xml" expression="get-property('Endpoint')"/>
+                                    </args>
+                                </payloadFactory>
+                                <call>
+                                    <endpoint>
+                                        <http method="post" uri-template="$FILE:dynamicQueryCall">
+                                            <suspendOnFailure>
+                                                <initialDuration>-1</initialDuration>
+                                                <progressionFactor>-1</progressionFactor>
+                                                <maximumDuration>0</maximumDuration>
+                                            </suspendOnFailure>
+                                            <markForSuspension>
+                                                <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                            </markForSuspension>
+                                        </http>
+                                    </endpoint>
+                                </call>
+                            </case>
+                            <default/>
+                        </switch>
+                    </sequence>
+                </target>
+            </iterate>
+            <sequence key="AggregateResponsesSeq"/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>
