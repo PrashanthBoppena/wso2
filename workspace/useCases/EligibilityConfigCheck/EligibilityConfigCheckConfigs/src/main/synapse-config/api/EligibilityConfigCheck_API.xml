@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/check-eligibility" name="EligibilityConfigCheck_API" xmlns="http://ws.apache.org/ns/synapse">
-    <resource faultSequence="FaultSequence" methods="POST">
+    <resource methods="POST">
         <inSequence>
+            <filter regex="false" source="boolean($trp:parentId)">
+                <then>
+                    <log description="parentId null" level="custom">
+                        <property name="Log" value="This call is Main call"/>
+                    </log>
+                    <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
+                    <property description="childId" name="childId" scope="default" type="STRING" value="Main"/>
+                </then>
+                <else>
+                    <log description="parent Id from $trp" level="custom">
+                        <property name="Log" value="This call is child call having parent Id"/>
+                        <property expression="$trp:parentId" name="log parentId header==>"/>
+                    </log>
+                    <property description="parentId" expression="$trp:parentId" name="parentId" scope="default" type="STRING"/>
+                    <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                    <property action="remove" description="make $trp parentId null" name="parentId" scope="transport"/>
+                </else>
+            </filter>
+            <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
             <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
             <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
             <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
@@ -46,6 +65,20 @@
                             <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
                             <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
                         </propertyGroup>
+                        <payloadFactory media-type="json">
+                            <format>{&#xd;
+    "parameters": {&#xd;
+        "customer_id": "518531"&#xd;
+    },&#xd;
+    "bscs_params": {&#xd;
+        "sccode": "1",&#xd;
+        "submId": "1",&#xd;
+        "plcode": "1001",&#xd;
+        "rpcode": "1"&#xd;
+    }&#xd;
+}</format>
+                            <args/>
+                        </payloadFactory>
                         <sequence key="REST_API_Call_Seq"/>
                     </sequence>
                 </target>
@@ -113,5 +146,17 @@
             </aggregate>
         </inSequence>
         <outSequence/>
+        <faultSequence>
+            <sequence key="gov:custom/sequences/FaultSequence.xml"/>
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property expression="$axis2:HTTP_SC" name="status"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="$ctx:childId" name="childId"/>
+            </class>
+            <respond/>
+        </faultSequence>
     </resource>
 </api>

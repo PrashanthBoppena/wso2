@@ -59,10 +59,10 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			
 			// Fetch dynamic query configuration from the database based on query name
 			QueryConfig queryConfig = JDBCConnectionUtil.getQueryConfigFromDatabase(queryName, properties);
-			log.info("QueryConfig Object info :: " + queryConfig);
+			//log.info("QueryConfig Object info :: " + queryConfig);
 			if (queryConfig == null || org.apache.commons.lang.StringUtils.isEmpty(queryConfig.getPropertiesFile())) {
 				// Handle error: Query not found in the database
-			log.info("QueryConfig Object info is null /not existed in DB");
+			//log.info("QueryConfig Object info is null /not existed in DB");
 
 				// Error Response
 				errorCode = "QUE_NM_001";
@@ -91,7 +91,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 
 			if (dynamicQuery == null) {
 				// Handle error: Query not found in the properties file
-				log.info("Dynamic Query Object not found in properties file");
+				//log.info("Dynamic Query Object not found in properties file");
 
 				// Error Response
 				errorCode = "QUE_DNM_002";
@@ -121,7 +121,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 				}
 				else
 				{
-					log.info("Invalid Input Payload Object");
+					//log.info("Invalid Input Payload Object");
 
 					// Error Response
 					errorCode = "INV_JSON_003";
@@ -132,7 +132,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 					return true;
 				}
 
-				log.info("Dynamic Query after the query prepared in format::" + dynamicQuery);
+				//log.info("Dynamic Query after the query prepared in format::" + dynamicQuery);
 			}
 			
 			// Connect to the database based on system name and schema name
@@ -141,16 +141,17 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 
 			// Execute the dynamic query using the database connection
 		     targetDBConnection = JDBCConnectionUtil.connectToDatabase(systemName, schemaName, properties);
-			log.info("Target DB Query  Connection Object ::" + targetDBConnection);
+			//log.info("Target DB Query  Connection Object ::" + targetDBConnection);
 			if (targetDBConnection != null) {
-			log.info("===>Dynmc query::" + dynamicQuery);
+			//log.info("===>Dynmc query::" + dynamicQuery);
+			messageContext.setProperty("dynamicQuery", dynamicQuery);
 			preparedStatement = targetDBConnection.prepareStatement(dynamicQuery);
 			boolean execute = preparedStatement.execute();
 			JsonArray resultsetJSONArray;
 			if (execute) {
 				ResultSet resultSet = preparedStatement.getResultSet();
 				resultsetJSONArray = CommonUtils.prepareResultSetJSONObject(resultSet);
-				log.info("Target DB Query resultsetJSONArray===>" + resultsetJSONArray);
+				//log.info("Target DB Query resultsetJSONArray===>" + resultsetJSONArray);
 				messageContext.setProperty("dbResponse", resultsetJSONArray);
 				dbResponse = resultsetJSONArray;
 				statusCode = "200";
@@ -159,7 +160,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			} else {
 
 				int effectedRows = preparedStatement.getUpdateCount();
-				log.info("Target DB Query info ::"+ effectedRows + " rows effected Successfully.");
+				//log.info("Target DB Query info ::"+ effectedRows + " rows effected Successfully.");
 				String singleElement = effectedRows + " rows effected ";
 				statusCode = "200";
 				message = singleElement +"Successfully.";
@@ -170,7 +171,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			} else 
 			{
 				// Handle error: Unable to connect to the database
-				log.info("Target DB system Connection object is null");
+				//log.info("Target DB system Connection object is null");
 				// Error Response
 				errorCode = "QUE_TRG_004";
 				errorName = "Target DB system Connection object is null";
@@ -179,7 +180,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			}
 		} catch (Exception e) {
 			
-			log.info("Exception occured during the db call->"+e);
+			//log.info("Exception occured during the db call->"+e);
 			// Error Response
 			errorCode = "500";
 			errorName = "Exception occured during the db call";
@@ -190,7 +191,7 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
             MediatorResponse obj = CommonUtils.buildResponse(queryName, statusCode, message, dbResponse, errorName,errorCode);
 			Gson gson = new Gson();
 			String json = gson.toJson(obj);
-			messageContext.setProperty("responsePayload", json);
+			messageContext.setProperty("dynamicQueryMediatorResponsePayload", json);
 		}
 		return true;
 

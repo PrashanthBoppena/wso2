@@ -14,4 +14,7 @@
     <artifact name="SystemResLogsSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/SystemResLogsSeq.xml</file>
     </artifact>
+    <artifact name="sampleSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/sampleSeq.xml</file>
+    </artifact>
 </artifacts>

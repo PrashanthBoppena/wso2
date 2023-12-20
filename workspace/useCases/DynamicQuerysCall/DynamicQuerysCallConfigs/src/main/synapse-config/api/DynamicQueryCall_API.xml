@@ -30,7 +30,7 @@
             <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
                 <property name="process" value="DynamicQueryCall"/>
                 <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
-                <property expression="$ctx:requestPayload" name="requestPayload"/>
+                <property expression="$ctx:dynamicQueryMediatorRequestPayload" name="requestPayload"/>
                 <property expression="$ctx:SYNAPSE_REST_API" name="apiName"/>
                 <property expression="get-property('parentId')" name="parentId"/>
                 <property expression="$ctx:childId" name="childId"/>
@@ -39,14 +39,14 @@
             <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
                 <property expression="get-property('parentId')" name="parentId"/>
                 <property expression="$ctx:childId" name="childId"/>
-                <property expression="$ctx:responsePayload" name="responsePayload"/>
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="responsePayload"/>
                 <property name="status" value="Completed"/>
                 <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
             </class>
             <payloadFactory description="buildResponsePayload" media-type="json">
                 <format>$1</format>
                 <args>
-                    <arg evaluator="xml" expression="$ctx:responsePayload"/>
+                    <arg evaluator="xml" expression="$ctx:dynamicQueryMediatorResponsePayload"/>
                 </args>
             </payloadFactory>
             <respond/>

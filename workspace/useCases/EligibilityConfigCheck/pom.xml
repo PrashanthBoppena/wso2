@@ -10,6 +10,7 @@
   <description>EligibilityConfigCheck</description>
   <modules>
     <module>EligibilityConfigCheckRegistryResources</module>
+    <module>EligibilityConfigCheckRegistryResources</module>
     <module>EligibilityConfigCheckConfigs</module>
     <module>EligibilityConfigCheckCompositeExporter</module>
   </modules>
