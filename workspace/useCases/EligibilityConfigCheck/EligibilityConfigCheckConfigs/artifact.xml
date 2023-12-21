@@ -38,4 +38,19 @@
     <artifact name="CustomerValidation_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/CustomerValidation_API_metadata.yaml</file>
     </artifact>
+    <artifact name="NMS_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/NMS_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="compositeDynamicSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/compositeDynamicSequence.xml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/dynamicSequenceCheck_API.xml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/dynamicSequenceCheck_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/dynamicSequenceCheck_API_metadata.yaml</file>
+    </artifact>
 </artifacts>

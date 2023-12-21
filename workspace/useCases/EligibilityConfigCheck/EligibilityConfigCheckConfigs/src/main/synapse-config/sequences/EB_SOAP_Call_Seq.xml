@@ -1,36 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="EB_SOAP_Call_Seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <propertyGroup>
-        <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
-    </propertyGroup>
-    <!-- setting the json data as property and value  -->
-    <script language="js"><![CDATA[var log = mc.getServiceLog();
-var jsonData = mc.getProperty("requestPayload");
-
-var json = JSON.parse(jsonData);
-
-function setProperties(json, parentKey) {
-	for (var key in json) {
-		if (json.hasOwnProperty(key)) {
-			var value = json[key];
-
-			if (typeof value === 'object') {
-				// If the value is a nested JSON object, recursively iterate
-				setProperties(value, parentKey + key + '.');
-			} else {
-				// If the value is a leaf node, set the property
-				// var propertyName = parentKey + key;    parameters.addressRequest.adrLname
-				var propertyName = key;
-				var propertyValue = value.toString();
-				mc.setProperty(propertyName, propertyValue);
-				//log.info("Property set: " + propertyName + " = " + propertyValue);
-			}
-		}
-	}
-}
-
-// Set properties dynamically
-setProperties(json, '');]]></script>
+<sequence name="EB_SOAP_Call_Seq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <property name="BUID_VAL" scope="default" type="STRING" value="2"/>
     <property expression="get-property($ctx:req_template_ID)" name="req_template" scope="default" type="OM"/>
     <!-- <log level="custom">
@@ -38,7 +7,7 @@ setProperties(json, '');]]></script>
 </log>  -->
     <script language="js"><![CDATA[var log = mc.getServiceLog();   
 	var XMLRequest = mc.getProperty("req_template");
-	//log.info("req_template in script "+ XMLRequest);
+	log.info("req_template in script "+ XMLRequest);
 	var srcRequest = XMLRequest.toString();
 	
 	// Extract placeholder keys from the  srcRequest

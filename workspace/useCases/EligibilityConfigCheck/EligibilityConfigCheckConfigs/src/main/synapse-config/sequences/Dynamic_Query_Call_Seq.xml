@@ -10,5 +10,4 @@
             <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
         </args>
     </payloadFactory>
-    <respond/>
 </sequence>
