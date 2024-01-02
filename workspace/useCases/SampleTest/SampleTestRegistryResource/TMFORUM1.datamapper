@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="customerInfo" schemaDataType="OBJECT" level="2">
+        <node name="LNAME" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInfo/LNAME"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@operators.0/@basicContainer/@leftContainer/@leftConnectors.1/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="FNAME" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInfo/FNAME"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@operators.0/@basicContainer/@leftContainer/@leftConnectors.0/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="PLACE" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInfo/PLACE"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink/>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.1/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/customerInfo"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{LNAME={id=http://wso2jsonschema.org/customerInfo/LNAME, type=string}, FNAME={id=http://wso2jsonschema.org/customerInfo/FNAME, type=string}, PLACE={id=http://wso2jsonschema.org/customerInfo/PLACE, type=string}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="customerInformation" schemaDataType="OBJECT" level="2">
+        <node name="NAME" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInformation/NAME"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@operators.0/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.1"/>
+        </node>
+        <node name="PLACE" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInformation/PLACE"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@outNode/@outgoingLink.1"/>
+        </node>
+        <node name="DOB" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerInformation/DOB"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/customerInformation"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{NAME={id=http://wso2jsonschema.org/customerInformation/NAME, type=string}, PLACE={id=http://wso2jsonschema.org/customerInformation/PLACE, type=string}, DOB={id=http://wso2jsonschema.org/customerInformation/DOB, type=string}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+  <operators xsi:type="datamapper:Concat" defaultInputConnectors="2" defaultOutputConnectors="1" inputSizeFixed="false" operatorType="CONCAT" delimiter=" ">
+    <basicContainer>
+      <leftContainer>
+        <leftConnectors>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+        </leftConnectors>
+        <leftConnectors>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@outNode/@outgoingLink.0"/>
+        </leftConnectors>
+      </leftContainer>
+      <rightContainer>
+        <rightConnectors>
+          <outNode>
+            <outgoingLink/>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.0/@inNode"/>
+          </outNode>
+        </rightConnectors>
+      </rightContainer>
+    </basicContainer>
+  </operators>
+</datamapper:DataMapperRoot>

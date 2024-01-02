@@ -106,12 +106,30 @@
                 </payloadFactory>
             </default>
         </switch>
-        <payloadFactory media-type="json">
-            <format>$1</format>
-            <args>
-                <arg evaluator="json" expression="$"/>
-            </args>
-        </payloadFactory>
+        <filter regex="200" source="$axis2:HTTP_SC">
+            <then>
+                <payloadFactory media-type="json">
+                    <format>{&#xd;
+"validateStatus":true,&#xd;
+"NMS_Response":$1&#xd;
+&#xd;
+}</format>
+                    <args>
+                        <arg evaluator="json" expression="$"/>
+                    </args>
+                </payloadFactory>
+            </then>
+            <else>
+                <payloadFactory media-type="json">
+                    <format>{&#xd;
+"validateStatus":false,&#xd;
+"NMS_Response":$1&#xd;
+&#xd;
+}</format>
+                    <args/>
+                </payloadFactory>
+            </else>
+        </filter>
         <respond/>
     </sequence>
 </template>

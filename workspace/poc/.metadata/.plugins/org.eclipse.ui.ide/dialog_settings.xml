@@ -12,7 +12,7 @@
 	</section>
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
-		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
 	</section>
 	<section name="NewWizardAction">
 	</section>

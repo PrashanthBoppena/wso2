@@ -1,63 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/sample_test" name="SampleTest_API" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="GET">
+    <resource methods="POST GET">
         <inSequence>
             <payloadFactory media-type="json">
-                <format>[&#xd;
+                <format>&#xd;
     {&#xd;
-        "queryName": "GetCustomer",&#xd;
-        "parameters": {&#xd;
-            "customer_id": "518531"&#xd;
-        }&#xd;
-    },&#xd;
-    {&#xd;
-        "validateStatus": true,&#xd;
-        "Response": [&#xd;
-            {&#xd;
-                "CUSTCODE": "1.400759"&#xd;
-            }&#xd;
-        ]&#xd;
-    }&#xd;
-]</format>
+        "color": "red",&#xd;
+        "value": "#f00"&#xd;
+    }</format>
                 <args/>
             </payloadFactory>
-            <iterate expression="json-eval($)" id="noagg" sequential="true">
-                <target>
-                    <sequence>
-                        <log level="custom">
-                            <property name="IterationCount=========>" value="IterationCount=========>"/>
-                        </log>
-                        <log level="custom">
-                            <property expression="$ctx:dynamicQuery" name="before@@@@@@@@@@"/>
-                        </log>
-                        <payloadFactory description="Dynamic Query Payload" media-type="json">
-                            <format>{&#xd;
-    "queryName": "CUS_OnBoarding",&#xd;
-    "parameters": {&#xd;
-   		"customer_id": "518531",&#xd;
-		"sub_api_id": "CUS_OnBoarding"&#xd;
-    }&#xd;
-}</format>
-                            <args>
-                                <arg evaluator="xml" expression="$ctx:queryName"/>
-                                <arg evaluator="json" expression="$.parameters"/>
-                                <arg evaluator="json" expression="$.bscs_params"/>
-                            </args>
-                        </payloadFactory>
-                        <propertyGroup description="BSCS Properties">
-                            <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
-                            <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
-                        </propertyGroup>
-                        <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
-                        <log level="custom">
-                            <property expression="$ctx:dynamicQuery" name="after======>"/>
-                        </log>
-                        <log level="custom">
-                            <property expression="json-eval($ctx:dynamicQueryMediatorResponsePayload.response)" name="json-eval($ctx:dynamicQueryMediatorResponsePayload.response)"/>
-                        </log>
-                    </sequence>
-                </target>
-            </iterate>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+                            var responses = mc.getPayloadJSON() || {} ;
+                            var eligibilitystatus = true;
+                  
+                            log.info("eligibilitystatus==> "+eligibilitystatus);
+                           
+							responses.eligibilitystatus=eligibilitystatus;
+                            mc.setPayloadJSON(responses); 
+                            
+                            //mc.setProperty("eligibilitystatus",eligibilitystatus);]]></script>
+            <sequence key="sampleSeq"/>
+            <log level="custom">
+                <property expression="get-property('transport', 'Content-Type')" name="get-property('transport', 'Content-Type')"/>
+            </log>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/1">
+        <inSequence>
+            <datamapper config="gov:datamapper/TMFORUM1.dmc" description="TMFORUM Mapping" inputSchema="gov:datamapper/TMFORUM1_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/TMFORUM1_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/TMFORUM1_xsltStyleSheet.xml"/>
+            <respond/>
         </inSequence>
         <outSequence/>
         <faultSequence/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.wso2.integrationstudio.distribution.exportAsArchiveFile"/>
 		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ZipFile"/>
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.jdt.ui.Java"/>
@@ -44,6 +44,9 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="F:\Projects Export from studio KT\EligibilityConfigCheck_V_4.0.zip"/>
+			<item value="F:\Projects Export from studio KT\EligibilityConfigCheck_V_3.0.zip"/>
+			<item value="F:\Projects Export from studio KT\EligibilityConfigCheck_V_2.1"/>
 			<item value="F:\Projects Export from studio KT\EligibilityConfigCheck_V_2.0"/>
 			<item value="F:\Projects Export from studio KT\parallelApiCalling_eligibilityConfigsCheck\cloneAggregate_v1.0.zip"/>
 			<item value="F:\Projects Export from studio KT\DynamicQuerycall\DynamicQuery_v2.0.zip"/>

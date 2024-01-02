@@ -1,0 +1,7 @@
+{
+    "customerInformation": {
+        "NAME": "String",
+        "PLACE": "String",
+        "DOB": null
+    }
+}

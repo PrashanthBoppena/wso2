@@ -31,24 +31,28 @@
                 <property expression="$ctx:parentId" name="parentId"/>
                 <property name="childId" value="Main"/>
             </class>
-            <call description="DynamicQueryCall">
-                <endpoint>
-                    <http method="post" uri-template="$FILE:dynamicQueryCall">
-                        <suspendOnFailure>
-                            <initialDuration>-1</initialDuration>
-                            <progressionFactor>-1</progressionFactor>
-                            <maximumDuration>0</maximumDuration>
-                        </suspendOnFailure>
-                        <markForSuspension>
-                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
-                        </markForSuspension>
-                    </http>
-                </endpoint>
-            </call>
+            <payloadFactory description="Dynamic Query Payload" media-type="json">
+                <format>{&#xd;
+    "queryName": "$1",&#xd;
+    "parameters": $2&#xd;
+}</format>
+                <args>
+                    <arg evaluator="json" expression="$.queryName"/>
+                    <arg evaluator="json" expression="$.parameters"/>
+                </args>
+            </payloadFactory>
+            <propertyGroup description="BSCS Properties">
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+            <log level="custom">
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="json-eval($ctx:dynamicQueryMediatorResponsePayload)"/>
+            </log>
             <payloadFactory description="buildPayload" media-type="json">
                 <format>$1</format>
                 <args>
-                    <arg evaluator="json" expression="$.response"/>
+                    <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
                 </args>
             </payloadFactory>
             <property description="count enable flags" expression="json-eval($.length())" name="EnableFlagCount" scope="default" type="STRING"/>
@@ -126,7 +130,7 @@
                     <payloadFactory media-type="json">
                         <format>{&#xd;
 "eligibilitystatus":$2,&#xd;
-"response":$1&#xd;
+"AggResponse":$1&#xd;
 }</format>
                         <args>
                             <arg evaluator="json" expression="$"/>

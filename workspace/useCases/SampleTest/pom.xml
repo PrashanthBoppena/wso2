@@ -9,6 +9,7 @@
   <name>SampleTest</name>
   <description>SampleTest</description>
   <modules>
+    <module>SampleTestRegistryResource</module>
     <module>SystemRequestLogHandler</module>
     <module>SampleTestConfigs</module>
     <module>SampleTestCompositeExporter</module>

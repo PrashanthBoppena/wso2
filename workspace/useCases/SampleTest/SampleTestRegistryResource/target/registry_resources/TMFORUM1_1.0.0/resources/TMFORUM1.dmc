@@ -1,0 +1,15 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+var CONCAT_3_0 = '';
+
+CONCAT_3_0 = inputroot.customerInfo.FNAME.toString().concat(' ',inputroot.customerInfo.LNAME);
+outputroot =  {};
+outputroot.customerInformation =  {};
+outputroot.customerInformation.NAME = CONCAT_3_0;
+outputroot.customerInformation.PLACE = inputroot.customerInfo.PLACE;
+return outputroot;
+};
+
+
+
+

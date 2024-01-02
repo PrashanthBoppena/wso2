@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="query_config"/>
+			<item value="8290"/>
 			<item value="getLog"/>
 			<item value="connectToDatabase"/>
 			<item value="getQueryConfigFromDatabase"/>
@@ -21,10 +23,9 @@
 			<item value="NotificationsDS"/>
 			<item value="NotificationsExchange/Dynamic"/>
 			<item value="ReqExchange"/>
-			<item value="ReqQueue"/>
-			<item value="store"/>
 		</list>
 		<list key="replacehistory">
+			<item value="8285"/>
 			<item value=""/>
 			<item value="WSO2Test"/>
 			<item value="NotificationEngineDS"/>
