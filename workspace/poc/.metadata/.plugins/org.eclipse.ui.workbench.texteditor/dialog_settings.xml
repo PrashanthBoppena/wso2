@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="startNewSection"/>
 			<item value="query_config"/>
 			<item value="8290"/>
 			<item value="getLog"/>
@@ -22,7 +23,6 @@
 			<item value="sequence"/>
 			<item value="NotificationsDS"/>
 			<item value="NotificationsExchange/Dynamic"/>
-			<item value="ReqExchange"/>
 		</list>
 		<list key="replacehistory">
 			<item value="8285"/>

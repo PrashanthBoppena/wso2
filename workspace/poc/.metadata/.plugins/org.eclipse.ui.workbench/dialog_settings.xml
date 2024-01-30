@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.wso2.integrationstudio.distribution.exportAsArchiveFile"/>
 		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.wso2.integrationstudio.distribution.importAsArtifact"/>
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.jdt.ui.Java"/>
@@ -15,6 +15,7 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="F:\Projects Export from studio KT\NotificationEngine_v1.zip"/>
 			<item value="F:\Projects Export from studio KT\DynamicEBSeq\DynamicEBSeq.zip"/>
 			<item value="F:\FTP-Projects\FileTransferServerToServer(mah).zip"/>
 			<item value="F:\SMS\Notifications3.zip"/>

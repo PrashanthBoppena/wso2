@@ -29,4 +29,13 @@
     <artifact name="FileDetailsCaptureSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/FileDetailsCaptureSequence.xml</file>
     </artifact>
+    <artifact name="sampleSecurityAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/sampleSecurityAPI.xml</file>
+    </artifact>
+    <artifact name="sampleSecurityAPI_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/sampleSecurityAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="sampleSecurityAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/sampleSecurityAPI_metadata.yaml</file>
+    </artifact>
 </artifacts>

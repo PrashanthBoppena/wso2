@@ -5,21 +5,77 @@
   "title" : "root",
   "type" : "object",
   "properties" : {
-    "customerInformation" : {
-      "id" : "http://wso2jsonschema.org/customerInformation",
+    "customerReadResponse" : {
+      "id" : "http://wso2jsonschema.org/customerReadResponse",
       "type" : "object",
       "properties" : {
-        "NAME" : {
-          "id" : "http://wso2jsonschema.org/customerInformation/NAME",
+        "csId" : {
+          "id" : "http://wso2jsonschema.org/customerReadResponse/csId",
+          "type" : "number"
+        },
+        "csIdPub" : {
+          "id" : "http://wso2jsonschema.org/customerReadResponse/csIdPub",
           "type" : "string"
         },
-        "PLACE" : {
-          "id" : "http://wso2jsonschema.org/customerInformation/PLACE",
-          "type" : "string"
+        "csCode" : {
+          "id" : "http://wso2jsonschema.org/customerReadResponse/csCode",
+          "type" : "number"
+        }
+      }
+    },
+    "addressReadResponse" : {
+      "id" : "http://wso2jsonschema.org/addressReadResponse",
+      "type" : "object",
+      "properties" : {
+        "adrNationality" : {
+          "id" : "http://wso2jsonschema.org/addressReadResponse/adrNationality",
+          "type" : "number"
         },
-        "DOB" : {
-          "id" : "http://wso2jsonschema.org/customerInformation/DOB",
+        "adrNationalityPub" : {
+          "id" : "http://wso2jsonschema.org/addressReadResponse/adrNationalityPub",
           "type" : "string"
+        }
+      }
+    },
+    "contractReadResponse" : {
+      "id" : "http://wso2jsonschema.org/contractReadResponse",
+      "type" : "object",
+      "properties" : {
+        "contracts" : {
+          "id" : "http://wso2jsonschema.org/contractReadResponse/contracts",
+          "type" : "object",
+          "properties" : {
+            "item" : {
+              "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item",
+              "type" : "array",
+              "items" : [ {
+                "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0",
+                "type" : "object",
+                "properties" : {
+                  "contractTypeId" : {
+                    "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0/contractTypeId",
+                    "type" : "number"
+                  },
+                  "buId" : {
+                    "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0/buId",
+                    "type" : "number"
+                  },
+                  "coStatus" : {
+                    "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0/coStatus",
+                    "type" : "number"
+                  },
+                  "csCode" : {
+                    "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0/csCode",
+                    "type" : "number"
+                  },
+                  "dirnum" : {
+                    "id" : "http://wso2jsonschema.org/contractReadResponse/contracts/item/0/dirnum",
+                    "type" : "number"
+                  }
+                }
+              } ]
+            }
+          }
         }
       }
     }

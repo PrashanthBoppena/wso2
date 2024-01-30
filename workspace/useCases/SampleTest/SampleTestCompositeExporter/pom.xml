@@ -14,9 +14,9 @@
   <name>SampleTestCompositeExporter</name>
   <description>SampleTestCompositeExporter</description>
   <properties>
-    <com.example.metadata_._KYC_Calling_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._KYC_Calling_API_swagger>
-    <com.example.api_._MAH_Status_API>capp/EnterpriseServiceBus</com.example.api_._MAH_Status_API>
     <com.example.sequence_._faultSequence>capp/EnterpriseServiceBus</com.example.sequence_._faultSequence>
+    <com.example.api_._MAH_Status_API>capp/EnterpriseServiceBus</com.example.api_._MAH_Status_API>
+    <com.example.metadata_._KYC_Calling_API_swagger>capp/EnterpriseServiceBus</com.example.metadata_._KYC_Calling_API_swagger>
     <com.example.resource_._ResponseCustomerReadJSON>capp/EnterpriseIntegrator</com.example.resource_._ResponseCustomerReadJSON>
     <com.example.api_._Barring_API>capp/EnterpriseServiceBus</com.example.api_._Barring_API>
     <com.example.metadata_._SampleTest_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._SampleTest_API_metadata>
@@ -24,6 +24,7 @@
     <com.example.api_._Deposite_API>capp/EnterpriseServiceBus</com.example.api_._Deposite_API>
     <com.example.metadata_._Clone_Aggregate_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._Clone_Aggregate_API_metadata>
     <com.example.resource_._RequestCustomerReadJSON>capp/EnterpriseIntegrator</com.example.resource_._RequestCustomerReadJSON>
+    <com.example.resource_._ECPayloadProcessing>capp/EnterpriseIntegrator</com.example.resource_._ECPayloadProcessing>
     <com.example.api_._Clone_Aggregate_API>capp/EnterpriseServiceBus</com.example.api_._Clone_Aggregate_API>
     <com.example.metadata_._MAH_Status_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._MAH_Status_API_metadata>
     <com.example.metadata_._KYC_Calling_API_metadata>capp/EnterpriseServiceBus</com.example.metadata_._KYC_Calling_API_metadata>
@@ -249,6 +250,18 @@
       <type>xml</type>
     </dependency>
     <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>sampleSeq</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>ECPayloadProcessing</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>RequestCustomerReadJSON</artifactId>
       <version>1.0.0</version>
@@ -283,12 +296,6 @@
       <artifactId>TMFORUM1_xsltStyleSheet</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>sampleSeq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>
